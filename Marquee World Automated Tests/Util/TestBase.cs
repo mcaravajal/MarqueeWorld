@@ -14,12 +14,10 @@ namespace Util
 {    
     public class TestBase
     {
-        protected IWebDriver driver;
+        private static IWebDriver driver;
         private static TestBase instance;
 
-        private TestBase() {
-            init();
-        }
+        private TestBase() {}
 
         public static TestBase Instance
         {
@@ -30,17 +28,23 @@ namespace Util
                 return instance;
             }
         }
+
+        public static IWebDriver Driver{
+            get
+            {                
+                return driver;
+            }
+        }
         
-        public void init()
+        public void Init()
         {                                          
             // Init Firefox Driver
             driver = new OpenQA.Selenium.Firefox.FirefoxDriver();
             string baseUrl = ConfigUtil.GetString("app.url");
             driver.Navigate().GoToUrl(baseUrl);            
-        }
-
-        [TestCleanup]
-        public void TeardownTest()
+        }        
+        
+        public void Teardown()
         {
             try
             {
@@ -206,14 +210,23 @@ namespace Util
                 return true;
             return false;
         }
-        public static bool IsTextPresent(IWebElement element, string txt)
+        public bool IsTextPresent(IWebElement element, string txt)
         {
             string aux = element.Text;
             if (aux.Equals(txt))
                 return true;
             return false;
         }
-        public static bool IsTextPresent(IWebElement element, string txt, int mod)
+
+        public bool IsTextPresent(By element, string txt)
+        {
+            string aux = driver.FindElement(element).Text;
+            if (aux.Equals(txt))
+                return true;
+            return false;
+        }
+
+        public bool IsTextPresent(IWebElement element, string txt, int mod)
         {
             string aux = element.GetAttribute("value").ToString();
             if (aux.Equals(txt))

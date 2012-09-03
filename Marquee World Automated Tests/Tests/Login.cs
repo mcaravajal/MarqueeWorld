@@ -10,16 +10,28 @@ using OpenQA.Selenium;
 namespace Marquee_World_Automated_Tests.Tests
 {
     [TestClass]
-    class Login
+    public class Login
     {
+        [TestInitialize]
+        public void InitTest()
+        {
+            TestBase.Instance.Init();
+        }
+
+        [TestCleanup]
+        public void TeardownTest(){
+            TestBase.Instance.Teardown();
+        }
+
         //
         //Make a log in with a valid Artist
         //
         [TestMethod]
         public void LoginSuccesfullyArtistUser()
         {
-            Login(ConfigUtil.GetString("Marquee.user.artist"), ConfigUtil.GetString("Marquee.pass.artist"));
-            Assert.IsTrue(IsElementPresent(By.Id("")));
+            Home HomePage = new Home();
+            HomePage.Login(ConfigUtil.GetString("Marquee.user.artist"), ConfigUtil.GetString("Marquee.pass.artist"));
+            Assert.IsTrue(TestBase.Instance.IsElementPresent(By.Id("")));
         }
         //
         //Make a log in with a valid General user
@@ -27,8 +39,9 @@ namespace Marquee_World_Automated_Tests.Tests
         [TestMethod]
         public void LoginSuccesfullyGenearlUser()
         {
-            Login(ConfigUtil.GetString("Marquee.user.general"), ConfigUtil.GetString("Marquee.pass.general"));
-            Assert.IsTrue(IsElementPresent(By.Id("")));
+            Home HomePage = new Home();
+            HomePage.Login(ConfigUtil.GetString("Marquee.user.general"), ConfigUtil.GetString("Marquee.pass.general"));
+            Assert.IsTrue(TestBase.Instance.IsElementPresent(By.Id("")));
         }
         //
         //
@@ -36,8 +49,9 @@ namespace Marquee_World_Automated_Tests.Tests
         [TestMethod]
         public void LoginPasswordEmpty()
         {
-            Login(ConfigUtil.GetString("Marquee.user.general"), "");
-            Assert.IsTrue(IsElementPresent(By.Id("")));
+            Home HomePage = new Home();
+            HomePage.Login(ConfigUtil.GetString("Marquee.user.general"), "");
+            Assert.IsTrue(TestBase.Instance.IsElementPresent(By.Id("")));
         }
         //
         //
@@ -45,8 +59,9 @@ namespace Marquee_World_Automated_Tests.Tests
         [TestMethod]
         public void LoginUserEmpty()
         {
-            Login("", ConfigUtil.GetString("Marquee.pass.general"));
-            Assert.IsTrue(IsElementPresent(By.Id("")));
+            Home HomePage = new Home();
+            HomePage.Login("", ConfigUtil.GetString("Marquee.pass.general"));
+            Assert.IsTrue(TestBase.Instance.IsElementPresent(By.Id("")));
         }
         //
         //
@@ -54,8 +69,9 @@ namespace Marquee_World_Automated_Tests.Tests
         [TestMethod]
         public void LoginUserAndPasswordEmpty()
         {
-            Login("", "");
-            Assert.IsTrue(IsElementPresent(By.Id("")));
+            Home HomePage = new Home();
+            HomePage.Login("", "");
+            Assert.IsTrue(TestBase.Instance.IsElementPresent(By.Id("")));
         }
         //
         //
@@ -63,8 +79,9 @@ namespace Marquee_World_Automated_Tests.Tests
         [TestMethod]
         public void LoginGeneralPasswordWrong()
         {
-            Login(ConfigUtil.GetString("Marquee.user.general"), "WrongPassword");
-            Assert.IsTrue(IsElementPresent(By.Id("")));
+            Home HomePage = new Home();
+            HomePage.Login(ConfigUtil.GetString("Marquee.user.general"), "WrongPassword");
+            Assert.IsTrue(TestBase.Instance.IsElementPresent(By.Id("")));
         }
         //
         //
@@ -72,8 +89,9 @@ namespace Marquee_World_Automated_Tests.Tests
         [TestMethod]
         public void LoginGeneralUserWrong()
         {
-            Login("UserName@worng.com", ConfigUtil.GetString("Marquee.pass.general"));
-            Assert.IsTrue(IsElementPresent(By.Id("")));
+            Home HomePage = new Home();
+            HomePage.Login("UserName@worng.com", ConfigUtil.GetString("Marquee.pass.general"));
+            Assert.IsTrue(TestBase.Instance.IsElementPresent(By.Id("")));
         }
         //
         //
@@ -81,8 +99,9 @@ namespace Marquee_World_Automated_Tests.Tests
         [TestMethod]
         public void LoginArtistPasswordWrong()
         {
-            Login(ConfigUtil.GetString("Marquee.user.artist"), "WrongPassword");
-            Assert.IsTrue(IsElementPresent(By.Id("")));
+            Home HomePage = new Home();
+            HomePage.Login(ConfigUtil.GetString("Marquee.user.artist"), "WrongPassword");
+            Assert.IsTrue(TestBase.Instance.IsElementPresent(By.Id("")));
         }
         //
         //
@@ -90,11 +109,9 @@ namespace Marquee_World_Automated_Tests.Tests
         [TestMethod]
         public void LoginArtistUserWrong()
         {
-            Login("UserName@worng.com", ConfigUtil.GetString("Marquee.pass.artist"));
-            Assert.IsTrue(IsElementPresent(By.Id("")));
-        }
-        //
-        //
-        //
+            Home HomePage = new Home();
+            HomePage.Login("UserName@worng.com", ConfigUtil.GetString("Marquee.pass.artist"));
+            Assert.IsTrue(TestBase.Instance.IsElementPresent(By.Id("")));
+        }        
     }
 }
