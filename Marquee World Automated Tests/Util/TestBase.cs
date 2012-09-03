@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
 using System.Threading;
-using Util.Util; 
 using OpenQA.Selenium;
 using OpenQA.Selenium.Remote;
 using OpenQA.Selenium.Support.UI;
@@ -12,25 +11,32 @@ using System.Data.SqlClient;
 using DatabaseConnectionLibrary;
 
 namespace Util
-{
-    [TestClass]
-    public abstract class TestBase
+{    
+    public class TestBase
     {
         protected IWebDriver driver;
-        protected StringBuilder verificationErrors;
+        private static TestBase instance;
 
-        [TestInitialize]
-        public void SetupTest()
-        {                    
-            // If you want to set the driver in the app.config file:
-            //IApplicationContext ctx = ContextRegistry.GetContext();
-            //driver = (IWebDriver)ctx.GetObject("Driver");            
+        private TestBase() {
+            init();
+        }
 
-            // If not, FirefoxDriver will be used by default
+        public static TestBase Instance
+        {
+            get
+            {
+                if (instance == null)
+                    instance = new TestBase();
+                return instance;
+            }
+        }
+        
+        public void init()
+        {                                          
+            // Init Firefox Driver
             driver = new OpenQA.Selenium.Firefox.FirefoxDriver();
             string baseUrl = ConfigUtil.GetString("app.url");
-            driver.Navigate().GoToUrl(baseUrl);
-            verificationErrors = new StringBuilder();
+            driver.Navigate().GoToUrl(baseUrl);            
         }
 
         [TestCleanup]
@@ -43,8 +49,7 @@ namespace Util
             catch (Exception)
             {
                 // Ignore errors if unable to close the browser
-            }
-            Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual("", verificationErrors.ToString());
+            }           
         }
 
         /// <summary>
@@ -194,6 +199,28 @@ namespace Util
             return false;
         }
 
+        public bool IsTextPresent(string xpath, string txt)
+        {
+            string aux = driver.FindElement(By.XPath(xpath)).Text;
+            if (aux.Equals(txt))
+                return true;
+            return false;
+        }
+        public static bool IsTextPresent(IWebElement element, string txt)
+        {
+            string aux = element.Text;
+            if (aux.Equals(txt))
+                return true;
+            return false;
+        }
+        public static bool IsTextPresent(IWebElement element, string txt, int mod)
+        {
+            string aux = element.GetAttribute("value").ToString();
+            if (aux.Equals(txt))
+                return true;
+            return false;
+        }
+
         public SqlDataReader RunCommand(string command)
         {
             // Create a new Connection with a valid Connection String.
@@ -203,9 +230,7 @@ namespace Util
             // Close the opened Connection.
             db.CloseConnection();
             return reader;
-        }    
-
+        }        
     }
-
 }
 

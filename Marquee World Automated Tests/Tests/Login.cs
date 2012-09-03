@@ -5,15 +5,15 @@ using System.Text;
 using Util;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Marquee_World_Automated_Tests.View;
-using Util.Util;
+using OpenQA.Selenium;
 
 namespace Marquee_World_Automated_Tests.Tests
 {
     [TestClass]
-    class Login  : Home
+    class Login
     {
         //
-        //
+        //Make a log in with a valid Artist
         //
         [TestMethod]
         public void LoginSuccesfullyArtistUser()
@@ -22,7 +22,7 @@ namespace Marquee_World_Automated_Tests.Tests
             Assert.IsTrue(IsElementPresent(By.Id("")));
         }
         //
-        //
+        //Make a log in with a valid General user
         //
         [TestMethod]
         public void LoginSuccesfullyGenearlUser()

@@ -8,7 +8,7 @@ using OpenQA.Selenium;
 
 namespace Marquee_World_Automated_Tests.View
 {
-    class Home : TestBase
+    class Home
     {
         public void Login(string username, string password)
         {
