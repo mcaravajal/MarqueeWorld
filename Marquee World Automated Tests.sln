@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Marquee World Automated Tests", "Marquee World Automated Tests\Marquee World Automated Tests.csproj", "{347B9ECF-DA44-45E0-A23D-72C33FE7A685}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F83F4244-6F2E-46B8-BD29-0122D582CA6B}"
+	ProjectSection(SolutionItems) = preProject
+		Local.testsettings = Local.testsettings
+		Marquee World Automated Tests.vsmdi = Marquee World Automated Tests.vsmdi
+		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = Marquee World Automated Tests.vsmdi
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{347B9ECF-DA44-45E0-A23D-72C33FE7A685}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{347B9ECF-DA44-45E0-A23D-72C33FE7A685}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{347B9ECF-DA44-45E0-A23D-72C33FE7A685}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{347B9ECF-DA44-45E0-A23D-72C33FE7A685}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
