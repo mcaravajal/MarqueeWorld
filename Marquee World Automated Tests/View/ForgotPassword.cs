@@ -9,7 +9,7 @@ namespace Marquee_World_Automated_Tests.View
 {
     public class ForgotPassword
     {
-        public void ForgotPassword(string email)
+        public void Forgot_Password(string email)
         {
             Browser.Driver.FindElement(By.LinkText("Forgot password?")).Click();
             Browser.Instance.Wait(By.Id("icons"));

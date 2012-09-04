@@ -9,6 +9,12 @@ namespace Marquee_World_Automated_Tests.View
 {
     public class Account
     {
-        public void Edit
+        public void EditFirstName(string name)
+        {
+            Browser.Driver.FindElement(By.Id("first")).Click();
+            Browser.Driver.FindElement(By.Id("input_first")).SendKeys(name);
+            Browser.Driver.FindElement(By.Id("input_first")).SendKeys(Keys.Enter);
+            string aux= Browser.Driver.FindElement(By.Id("input_first")).GetAttribute("Style=");
+        }
     }
 }
