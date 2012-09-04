@@ -43,11 +43,11 @@ namespace Marquee_World_Automated_Tests.View
             Browser.Driver.FindElement(By.Id("fname")).SendKeys(name);
             Browser.Driver.FindElement(By.Id("lname")).SendKeys(lastname);
             SelectElement selector = new SelectElement(Browser.Driver.FindElement(By.Name("month")));
-            selector.SelectByValue((new Random().Next(01,12)).ToString());
+            selector.SelectByText(selector.Options[(new Random().Next(1, 11))].Text);
             selector = new SelectElement(Browser.Driver.FindElement(By.Name("day")));
-            selector.SelectByValue((new Random().Next(1, 31)).ToString());
+            selector.SelectByText(selector.Options[(new Random().Next(1, 30))].Text);
             selector = new SelectElement(Browser.Driver.FindElement(By.Name("year")));
-            selector.SelectByValue((new Random().Next(1937, 2012)).ToString());
+            selector.SelectByText((new Random().Next(1937, 2012)).ToString());
             Browser.Driver.FindElement(By.Id("male")).Click();
             Browser.Driver.FindElement(By.Id("zip")).SendKeys(Zip);
             Browser.Driver.FindElement(By.Id("email1")).SendKeys(email);
