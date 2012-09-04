@@ -13,9 +13,9 @@ namespace Marquee_World_Automated_Tests.View
         //
         //Register as General User
         //
-        public void RegisterGeneralUser(string name, string lastname, string Zip, string email, string password, bool newsletter)
+        public void RegisterGeneralUser(string name, string lastname, string Zip, string email, string email2, string password, bool newsletter)
         {
-            RegisterUser(name, lastname, Zip, email, password, newsletter);
+            RegisterUser(name, lastname, Zip, email, email2, password, newsletter);
             Browser.Driver.FindElement(By.Id("submitform")).Click();
             Browser.Instance.Wait(By.CssSelector("div.subtitle"));
         }
@@ -23,9 +23,9 @@ namespace Marquee_World_Automated_Tests.View
         //
         //Register as Artist User
         //
-        public void RegisterArtistUser(string name, string lastname, string Zip, string email, string password, string band, string website, string facebook, string myspace, string twitter, bool newsletter)
+        public void RegisterArtistUser(string name, string lastname, string Zip, string email,string email2, string password, string band, string website, string facebook, string myspace, string twitter, bool newsletter)
         {
-            RegisterUser(name, lastname, Zip, email, password, newsletter);
+            RegisterUser(name, lastname, Zip, email, email2, password, newsletter);
             Browser.Driver.FindElement(By.Id("artist")).Click();
             Browser.Driver.FindElement(By.Name("band")).SendKeys(band);
             Browser.Driver.FindElement(By.Name("website")).SendKeys(website);
@@ -37,7 +37,7 @@ namespace Marquee_World_Automated_Tests.View
             Browser.Instance.Wait();
         }
 
-        private void RegisterUser(string name, string lastname, string Zip, string email, string password, bool newsletter){
+        private void RegisterUser(string name, string lastname, string Zip, string email, string email2, string password, bool newsletter){
             Browser.Driver.FindElement(By.LinkText("Sign Up")).Click();
             Browser.Instance.Wait(By.Id("fname"));
             Browser.Driver.FindElement(By.Id("fname")).SendKeys(name);
@@ -51,7 +51,7 @@ namespace Marquee_World_Automated_Tests.View
             Browser.Driver.FindElement(By.Id("male")).Click();
             Browser.Driver.FindElement(By.Id("zip")).SendKeys(Zip);
             Browser.Driver.FindElement(By.Id("email1")).SendKeys(email);
-            Browser.Driver.FindElement(By.Id("email2")).SendKeys(email);
+            Browser.Driver.FindElement(By.Id("email2")).SendKeys(email2);
             Browser.Driver.FindElement(By.Name("password1")).SendKeys(password);
             Browser.Driver.FindElement(By.Name("password2")).SendKeys(password);            
             if (newsletter)
