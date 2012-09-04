@@ -7,7 +7,7 @@ using OpenQA.Selenium;
 
 namespace Marquee_World_Automated_Tests.View
 {
-    public class Forgot_Password
+    public class ForgotPassword
     {
         public void ForgotPassword(string email)
         {

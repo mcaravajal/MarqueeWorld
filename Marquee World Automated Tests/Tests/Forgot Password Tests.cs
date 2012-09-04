@@ -29,7 +29,7 @@ namespace Marquee_World_Automated_Tests.Tests
         [TestMethod]
         public void ResetPasswordSuccesfully()
         {
-            Forgot_Password ForgotView = new Forgot_Password();
+            ForgotPassword ForgotView = new ForgotPassword();
             ForgotView.ForgotPassword(ConfigUtil.GetString("Marquee.user.general"));
             Assert.IsTrue(Browser.Instance.IsTextPresent(By.CssSelector("div.contained div.subtitle"), "Reset link sent!"));
         }
@@ -39,7 +39,7 @@ namespace Marquee_World_Automated_Tests.Tests
         [TestMethod]
         public void ResetPasswordEmptyEmail()
         {
-            Forgot_Password ForgotView = new Forgot_Password();
+            ForgotPassword ForgotView = new ForgotPassword();
             ForgotView.ForgotPassword("");
             Assert.IsFalse(Browser.Instance.IsElementPresent(By.CssSelector("div.contained div.subtitle")));
         }
@@ -49,7 +49,7 @@ namespace Marquee_World_Automated_Tests.Tests
         [TestMethod]
         public void ResetPasswordEmailInvalid()
         {
-            Forgot_Password ForgotView = new Forgot_Password();
+            ForgotPassword ForgotView = new ForgotPassword();
             ForgotView.ForgotPassword("emaiinvalid.com");
             //Can not make the assert until this bug were resovled
             //Assert.IsTrue(Browser.Instance.IsTextPresent(By.CssSelector("div.contained div.subtitle"), "Reset link sent!"));
@@ -60,7 +60,7 @@ namespace Marquee_World_Automated_Tests.Tests
         [TestMethod]
         public void ResetPasswordNotRegisteredEmail()
         {
-            Forgot_Password ForgotView = new Forgot_Password();
+            ForgotPassword ForgotView = new ForgotPassword();
             ForgotView.ForgotPassword("Emailwhichdontexist@gmail.com");
             Browser.Instance.Wait(By.CssSelector("p.error"));
             Assert.IsTrue(Browser.Instance.IsTextPresent(By.CssSelector("p.error"), "We don't seem to have that email on file!"));
