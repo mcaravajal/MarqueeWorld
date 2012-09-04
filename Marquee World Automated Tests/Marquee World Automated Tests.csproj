@@ -82,7 +82,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tests\Login.cs" />
-    <Compile Include="Tests\Forgot Password Tests.cs" />
+    <Compile Include="Tests\ForgotPasswordTests.cs" />
     <Compile Include="Tests\SignUp.cs" />
     <Compile Include="Util\ConfigUtil.cs" />
     <Compile Include="Util\Browser.cs" />
