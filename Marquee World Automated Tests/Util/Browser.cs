@@ -12,19 +12,19 @@ using DatabaseConnectionLibrary;
 
 namespace Util
 {    
-    public class TestBase
+    public class Browser
     {
         private static IWebDriver driver;
-        private static TestBase instance;
+        private static Browser instance;
 
-        private TestBase() {}
+        private Browser() {}
 
-        public static TestBase Instance
+        public static Browser Instance
         {
             get
             {
                 if (instance == null)
-                    instance = new TestBase();
+                    instance = new Browser();
                 return instance;
             }
         }
@@ -44,7 +44,7 @@ namespace Util
             driver.Navigate().GoToUrl(baseUrl);            
         }        
         
-        public void Teardown()
+        public void Close()
         {
             try
             {

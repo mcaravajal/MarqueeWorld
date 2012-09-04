@@ -15,12 +15,12 @@ namespace Marquee_World_Automated_Tests.Tests
         [TestInitialize]
         public void InitTest()
         {
-            TestBase.Instance.Init();
+            Browser.Instance.Init();
         }
 
         [TestCleanup]
         public void TeardownTest(){
-            TestBase.Instance.Teardown();
+            Browser.Instance.Close();
         }
 
         //
@@ -31,7 +31,7 @@ namespace Marquee_World_Automated_Tests.Tests
         {
             Home HomePage = new Home();
             HomePage.Login(ConfigUtil.GetString("Marquee.user.artist"), ConfigUtil.GetString("Marquee.pass.artist"));
-            Assert.IsTrue(TestBase.Instance.IsElementPresent(By.Id("")));
+            Assert.IsTrue(Browser.Instance.IsTextPresent(By.CssSelector("div#login_hp a[href='logout.php']"), "Log Out"));
         }
         //
         //Make a log in with a valid General user
@@ -41,7 +41,7 @@ namespace Marquee_World_Automated_Tests.Tests
         {
             Home HomePage = new Home();
             HomePage.Login(ConfigUtil.GetString("Marquee.user.general"), ConfigUtil.GetString("Marquee.pass.general"));
-            Assert.IsTrue(TestBase.Instance.IsElementPresent(By.Id("")));
+            Assert.IsTrue(Browser.Instance.IsTextPresent(By.CssSelector("div#login_hp a[href='logout.php']"), "Log Out"));
         }
         //
         //
@@ -51,7 +51,7 @@ namespace Marquee_World_Automated_Tests.Tests
         {
             Home HomePage = new Home();
             HomePage.Login(ConfigUtil.GetString("Marquee.user.general"), "");
-            Assert.IsTrue(TestBase.Instance.IsElementPresent(By.Id("")));
+            Assert.IsTrue(Browser.Instance.IsElementPresent(By.Id("")));
         }
         //
         //
@@ -61,7 +61,7 @@ namespace Marquee_World_Automated_Tests.Tests
         {
             Home HomePage = new Home();
             HomePage.Login("", ConfigUtil.GetString("Marquee.pass.general"));
-            Assert.IsTrue(TestBase.Instance.IsElementPresent(By.Id("")));
+            Assert.IsTrue(Browser.Instance.IsElementPresent(By.Id("")));
         }
         //
         //
@@ -71,7 +71,7 @@ namespace Marquee_World_Automated_Tests.Tests
         {
             Home HomePage = new Home();
             HomePage.Login("", "");
-            Assert.IsTrue(TestBase.Instance.IsElementPresent(By.Id("")));
+            Assert.IsTrue(Browser.Instance.IsElementPresent(By.Id("")));
         }
         //
         //
@@ -81,7 +81,7 @@ namespace Marquee_World_Automated_Tests.Tests
         {
             Home HomePage = new Home();
             HomePage.Login(ConfigUtil.GetString("Marquee.user.general"), "WrongPassword");
-            Assert.IsTrue(TestBase.Instance.IsElementPresent(By.Id("")));
+            Assert.IsTrue(Browser.Instance.IsElementPresent(By.Id("")));
         }
         //
         //
@@ -91,7 +91,7 @@ namespace Marquee_World_Automated_Tests.Tests
         {
             Home HomePage = new Home();
             HomePage.Login("UserName@worng.com", ConfigUtil.GetString("Marquee.pass.general"));
-            Assert.IsTrue(TestBase.Instance.IsElementPresent(By.Id("")));
+            Assert.IsTrue(Browser.Instance.IsElementPresent(By.Id("")));
         }
         //
         //
@@ -101,7 +101,7 @@ namespace Marquee_World_Automated_Tests.Tests
         {
             Home HomePage = new Home();
             HomePage.Login(ConfigUtil.GetString("Marquee.user.artist"), "WrongPassword");
-            Assert.IsTrue(TestBase.Instance.IsElementPresent(By.Id("")));
+            Assert.IsTrue(Browser.Instance.IsElementPresent(By.Id("")));
         }
         //
         //
@@ -111,7 +111,7 @@ namespace Marquee_World_Automated_Tests.Tests
         {
             Home HomePage = new Home();
             HomePage.Login("UserName@worng.com", ConfigUtil.GetString("Marquee.pass.artist"));
-            Assert.IsTrue(TestBase.Instance.IsElementPresent(By.Id("")));
+            Assert.IsTrue(Browser.Instance.IsElementPresent(By.Id("")));
         }        
     }
 }

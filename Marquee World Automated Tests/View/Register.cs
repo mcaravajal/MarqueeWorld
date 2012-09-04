@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Util;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 
 namespace Marquee_World_Automated_Tests.View
 {
@@ -15,41 +16,46 @@ namespace Marquee_World_Automated_Tests.View
         public void RegisterGeneralUser(string name, string lastname, string Zip, string email, string password, bool newsletter)
         {
             RegisterUser(name, lastname, Zip, email, password, newsletter);
-            TestBase.Driver.FindElement(By.Id("submitform")).Click();
-            TestBase.Instance.Wait(By.CssSelector("div.subtitle"));
+            Browser.Driver.FindElement(By.Id("submitform")).Click();
+            Browser.Instance.Wait(By.CssSelector("div.subtitle"));
         }
 
         //
         //Register as Artist User
         //
-        public void RegisterArtistUser(string name, string lastname, string Zip, string email, string password, bool artist, string band, string website, string facebook, string myspace, string twitter, bool newsletter)
+        public void RegisterArtistUser(string name, string lastname, string Zip, string email, string password, string band, string website, string facebook, string myspace, string twitter, bool newsletter)
         {
             RegisterUser(name, lastname, Zip, email, password, newsletter);
-            TestBase.Driver.FindElement(By.Id("artist")).Click();
-            TestBase.Driver.FindElement(By.Name("band")).SendKeys(band);
-            TestBase.Driver.FindElement(By.Name("website")).SendKeys(website);
-            TestBase.Driver.FindElement(By.Name("facebook")).SendKeys(facebook);
-            TestBase.Driver.FindElement(By.Name("myspace")).SendKeys(myspace);
-            TestBase.Driver.FindElement(By.Name("twitter")).SendKeys(twitter);
-            TestBase.Driver.FindElement(By.Id("eula_checkbox")).Click();
-            TestBase.Driver.FindElement(By.Id("submitform")).Click();
-            TestBase.Instance.Wait();
+            Browser.Driver.FindElement(By.Id("artist")).Click();
+            Browser.Driver.FindElement(By.Name("band")).SendKeys(band);
+            Browser.Driver.FindElement(By.Name("website")).SendKeys(website);
+            Browser.Driver.FindElement(By.Name("facebook")).SendKeys(facebook);
+            Browser.Driver.FindElement(By.Name("myspace")).SendKeys(myspace);
+            Browser.Driver.FindElement(By.Name("twitter")).SendKeys(twitter);
+            Browser.Driver.FindElement(By.Id("eula_checkbox")).Click();
+            Browser.Driver.FindElement(By.Id("submitform")).Click();
+            Browser.Instance.Wait();
         }
-    
 
         private void RegisterUser(string name, string lastname, string Zip, string email, string password, bool newsletter){
-            TestBase.Driver.FindElement(By.LinkText("Sign Up")).Click();
-            TestBase.Instance.Wait(By.Id("fname"));
-            TestBase.Driver.FindElement(By.Id("fname")).SendKeys(name);
-            TestBase.Driver.FindElement(By.Id("lname")).SendKeys(password);
-            TestBase.Driver.FindElement(By.Id("male")).Click();
-            TestBase.Driver.FindElement(By.Id("zip")).SendKeys(Zip);
-            TestBase.Driver.FindElement(By.Id("email1")).SendKeys(email);
-            TestBase.Driver.FindElement(By.Id("email2")).SendKeys(email);
-            TestBase.Driver.FindElement(By.Name("password1")).SendKeys(password);
-            TestBase.Driver.FindElement(By.Name("password2")).SendKeys(password);            
+            Browser.Driver.FindElement(By.LinkText("Sign Up")).Click();
+            Browser.Instance.Wait(By.Id("fname"));
+            Browser.Driver.FindElement(By.Id("fname")).SendKeys(name);
+            Browser.Driver.FindElement(By.Id("lname")).SendKeys(lastname);
+            SelectElement selector = new SelectElement(Browser.Driver.FindElement(By.Name("month")));
+            selector.SelectByValue((new Random().Next(01,12)).ToString());
+            selector = new SelectElement(Browser.Driver.FindElement(By.Name("day")));
+            selector.SelectByValue((new Random().Next(1, 31)).ToString());
+            selector = new SelectElement(Browser.Driver.FindElement(By.Name("year")));
+            selector.SelectByValue((new Random().Next(1937, 2012)).ToString());
+            Browser.Driver.FindElement(By.Id("male")).Click();
+            Browser.Driver.FindElement(By.Id("zip")).SendKeys(Zip);
+            Browser.Driver.FindElement(By.Id("email1")).SendKeys(email);
+            Browser.Driver.FindElement(By.Id("email2")).SendKeys(email);
+            Browser.Driver.FindElement(By.Name("password1")).SendKeys(password);
+            Browser.Driver.FindElement(By.Name("password2")).SendKeys(password);            
             if (newsletter)
-                TestBase.Driver.FindElement(By.Id("newsletter")).Click();
+                Browser.Driver.FindElement(By.Id("newsletter")).Click();
         }
     }
 }

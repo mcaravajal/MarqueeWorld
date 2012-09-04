@@ -15,13 +15,13 @@ namespace Marquee_World_Automated_Tests.Tests
         [TestInitialize]
         public void InitTest()
         {
-            TestBase.Instance.Init();
+            Browser.Instance.Init();
         }
 
         [TestCleanup]
         public void TeardownTest()
         {
-            TestBase.Instance.Teardown();
+            Browser.Instance.Close();
         }
 
         [TestMethod]
@@ -30,7 +30,15 @@ namespace Marquee_World_Automated_Tests.Tests
             Register RegisterView = new Register();
             string email = ConfigUtil.GetString("Marquee.register.email").Replace("@", "+" + (new Random()).Next(1000).ToString() + "@");
             RegisterView.RegisterGeneralUser(ConfigUtil.GetString("Marquee.register.name"), ConfigUtil.GetString("Marquee.register.lastname"), ConfigUtil.GetString("Marquee.register.zip"), email,ConfigUtil.GetString("Marquee.register.pass"),true);
-            Assert.IsTrue(TestBase.Instance.IsTextPresent(By.CssSelector("div.subtitle"),"Thank You for Registering"));
+            Assert.IsTrue(Browser.Instance.IsTextPresent(By.CssSelector("div.subtitle"),"Thank You for Registering"));
+        }
+        [TestMethod]
+        public void RegisterArtistSuccesfully()
+        {
+            Register RegisterView = new Register();
+            string email = ConfigUtil.GetString("Marquee.register.email").Replace("@", "+" + (new Random()).Next(1000).ToString() + "@");
+            RegisterView.RegisterArtistUser(ConfigUtil.GetString("Marquee.register.name"), ConfigUtil.GetString("Marquee.register.lastname"), ConfigUtil.GetString("Marquee.register.zip"), email, ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.artist.name"), ConfigUtil.GetString("Marquee.register.artist.website"), ConfigUtil.GetString("Marquee.register.artist.facebook"), ConfigUtil.GetString("Marquee.register.artist.myspace"), ConfigUtil.GetString("Marquee.register.artist.twitter"),true);
+            Assert.IsTrue(Browser.Instance.IsTextPresent(By.CssSelector("div.subtitle"), "Thank You for Registering"));
         }
         
     }
