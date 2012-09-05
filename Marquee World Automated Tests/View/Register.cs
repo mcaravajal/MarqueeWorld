@@ -13,9 +13,9 @@ namespace Marquee_World_Automated_Tests.View
         //
         //Register as General User
         //
-        public void RegisterGeneralUser(string name, string lastname, string Zip, string email, string email2, string password, string password2, bool newsletter)
+        public void RegisterGeneralUser(string name, string lastname, int day, int month, int year, bool gender, string Zip, string email, string email2, string password, string password2, bool newsletter)
         {
-            RegisterUser(name, lastname, Zip, email, email2, password, password2, newsletter);
+            RegisterUser(name, lastname, day, month, year, gender, Zip, email, email2, password, password2, newsletter);
             Browser.Driver.FindElement(By.Id("submitform")).Click();
             Browser.Instance.Wait(By.CssSelector("div.subtitle"));
         }
@@ -23,9 +23,9 @@ namespace Marquee_World_Automated_Tests.View
         //
         //Register as Artist User
         //
-        public void RegisterArtistUser(string name, string lastname, string Zip, string email,string email2, string password, string password2, string band, string website, string facebook, string myspace, string twitter, bool newsletter)
+        public void RegisterArtistUser(string name, string lastname, int day, int month, int year, bool gender, string Zip, string email, string email2, string password, string password2, string band, string website, string facebook, string myspace, string twitter, bool newsletter)
         {
-            RegisterUser(name, lastname, Zip, email, email2, password,password2, newsletter);
+            RegisterUser(name, lastname, day, month, year, gender, Zip, email, email2, password, password2, newsletter);
             Browser.Driver.FindElement(By.Id("artist")).Click();
             Browser.Driver.FindElement(By.Name("band")).SendKeys(band);
             Browser.Driver.FindElement(By.Name("website")).SendKeys(website);
@@ -37,18 +37,32 @@ namespace Marquee_World_Automated_Tests.View
             
         }
 
-        private void RegisterUser(string name, string lastname, string Zip, string email, string email2, string password, string password2, bool newsletter){
+        private void RegisterUser(string name, string lastname, int day,int month,int year,bool gender, string Zip, string email, string email2, string password, string password2, bool newsletter)
+        {
             Browser.Driver.FindElement(By.LinkText("Sign Up")).Click();
             Browser.Instance.Wait(By.Id("fname"));
             Browser.Driver.FindElement(By.Id("fname")).SendKeys(name);
             Browser.Driver.FindElement(By.Id("lname")).SendKeys(lastname);
-            SelectElement selector = new SelectElement(Browser.Driver.FindElement(By.Name("month")));
-            selector.SelectByText(selector.Options[(new Random().Next(1, 11))].Text);
-            selector = new SelectElement(Browser.Driver.FindElement(By.Name("day")));
-            selector.SelectByText(selector.Options[(new Random().Next(1, 30))].Text);
-            selector = new SelectElement(Browser.Driver.FindElement(By.Name("year")));
-            selector.SelectByText((new Random().Next(1937, 1996)).ToString());
-            Browser.Driver.FindElement(By.Id("male")).Click();
+            SelectElement selectormonth = new SelectElement(Browser.Driver.FindElement(By.Name("month")));
+            SelectElement selectorday = new SelectElement(Browser.Driver.FindElement(By.Name("day")));
+            SelectElement selectoryear = new SelectElement(Browser.Driver.FindElement(By.Name("year")));
+            if (day == 99 && month == 99 && year == 99)
+            {
+            }
+            else if (day == 0 && month == 0 && year == 0)
+            {
+                selectormonth.SelectByText(selectormonth.Options[(new Random().Next(1, 11))].Text);
+                selectorday.SelectByText(selectorday.Options[(new Random().Next(1, 30))].Text);
+                selectoryear.SelectByText((new Random().Next(1937, 1996)).ToString());
+            }
+            else
+            {
+                selectormonth.SelectByText(selectormonth.Options[month].Text);
+                selectorday.SelectByText(selectorday.Options[day].Text);
+                selectoryear.SelectByText(year.ToString());
+            }
+            if(gender)
+                Browser.Driver.FindElement(By.Id("male")).Click();
             Browser.Driver.FindElement(By.Id("zip")).SendKeys(Zip);
             Browser.Driver.FindElement(By.Id("email1")).SendKeys(email);
             Browser.Driver.FindElement(By.Id("email2")).SendKeys(email2);
