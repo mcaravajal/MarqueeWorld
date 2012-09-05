@@ -372,6 +372,39 @@ namespace Marquee_World_Automated_Tests.Tests
             RegisterView.RegisterGeneralUser(ConfigUtil.GetString("Marquee.register.name"), ConfigUtil.GetString("Marquee.register.lastname"), ConfigUtil.GetString("Marquee.register.zip"), email, "", ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.pass"), true);
             Assert.IsFalse(Browser.Instance.IsElementPresent(By.ClassName("error")));
         }
+        //
+        //Invalid General sign up - Empty Email Address field
+        //
+        [TestMethod]
+        public void RegisterInvalidEmptyEmailAddressFieldAsGeneral()
+        {
+            Register RegisterView = new Register();
+            string email = ConfigUtil.GetString("Marquee.register.email").Replace("@", "+" + (new Random()).Next(1000).ToString() + "@");
+            RegisterView.RegisterGeneralUser(ConfigUtil.GetString("Marquee.register.name"), ConfigUtil.GetString("Marquee.register.lastname"), ConfigUtil.GetString("Marquee.register.zip"), "", email, ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.pass"), true);
+            Assert.IsFalse(Browser.Instance.IsElementPresent(By.ClassName("error")));
+        }
+        //
+        //Invalid General sign up - Empty First Name Field
+        //
+        [TestMethod]
+        public void RegisterInvalidEmptyFirstNameFieldAsGeneral()
+        {
+            Register RegisterView = new Register();
+            string email = ConfigUtil.GetString("Marquee.register.email").Replace("@", "+" + (new Random()).Next(1000).ToString() + "@");
+            RegisterView.RegisterGeneralUser("", ConfigUtil.GetString("Marquee.register.lastname"), ConfigUtil.GetString("Marquee.register.zip"), email, email, ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.pass"), true);
+            Assert.IsFalse(Browser.Instance.IsElementPresent(By.ClassName("error")));
+        }
+        //
+        //Invalid General sign up - Empty Gender
+        //Need to work with Luciano to finish this one
+        //[TestMethod]
+        //public void RegisterInvalidEmptyGenderFieldAsGeneral()
+        //{
+        //    Register RegisterView = new Register();
+        //    string email = ConfigUtil.GetString("Marquee.register.email").Replace("@", "+" + (new Random()).Next(1000).ToString() + "@");
+        //    RegisterView.RegisterGeneralUser("", ConfigUtil.GetString("Marquee.register.lastname"), ConfigUtil.GetString("Marquee.register.zip"), email, email, ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.pass"), true);
+        //    Assert.IsFalse(Browser.Instance.IsElementPresent(By.ClassName("error")));
+        //}
     }
 }
 
