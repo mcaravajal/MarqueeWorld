@@ -309,7 +309,68 @@ namespace Marquee_World_Automated_Tests.Tests
             Register RegisterView = new Register();
             string email = ConfigUtil.GetString("Marquee.register.email").Replace("@", "+" + (new Random()).Next(1000).ToString() + "@");
             RegisterView.RegisterArtistUser(ConfigUtil.GetString("Marquee.register.name"), ConfigUtil.GetString("Marquee.register.lastname"), ConfigUtil.GetString("Marquee.register.zip"), email, email, ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.artist.name"), "%&/%&", "%&/", "&/$%$", "$$%%&&", true);
+            //Unable to validate this Assert because there is a bug when validating invalid chars for Social Networks Name field
             Assert.IsTrue(Browser.Instance.IsTextPresent(By.ClassName("error"), "Your password did not match the confirmed password!"));
+
+        }
+        //
+        //Invalid Artist sign up - Long char Band/Artist Name field
+        //
+        [TestMethod]
+        public void RegisterInvalidLongCharBandArtistFieldAsArtis()
+        {
+            Register RegisterView = new Register();
+            string email = ConfigUtil.GetString("Marquee.register.email").Replace("@", "+" + (new Random()).Next(1000).ToString() + "@");
+            RegisterView.RegisterArtistUser(ConfigUtil.GetString("Marquee.register.name"), ConfigUtil.GetString("Marquee.register.lastname"), ConfigUtil.GetString("Marquee.register.zip"), email, email, ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.artist.name"), "", "", "", "", true);
+            //Unable to validate this Assert because there is a bug when validating invalid chars for Band/Artist Name field
+            Assert.IsTrue(Browser.Instance.IsTextPresent(By.ClassName("error"), "Your password did not match the confirmed password!"));
+        }
+        //
+        //Invalid Artist sign up - Long char Emails Address field
+        //
+        [TestMethod]
+        public void RegisterInvalidLongCharEmailsAddressFieldAsArtis()
+        {
+            Register RegisterView = new Register();
+            string email = "testasdasdojasndoasdnaosdnasodnasodnasodnaosdnasodna@test.com";
+            RegisterView.RegisterArtistUser(ConfigUtil.GetString("Marquee.register.name"), ConfigUtil.GetString("Marquee.register.lastname"), ConfigUtil.GetString("Marquee.register.zip"), email, email, ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.pass"), "testnametestnametestnametestnametestnametestnametestname", "", "", "", "", true);
+            //Unable to validate this Assert because there is a bug when validating long chars for emails field
+            Assert.IsTrue(Browser.Instance.IsTextPresent(By.ClassName("error"), "Your password did not match the confirmed password!"));
+        }
+        //
+        ////Invalid Artist sign up - Long char DOB field
+        //
+        //[TestMethod]
+        //public void RegisterInvalidLongCharDOBFieldAsArtis()
+        //{
+        //    Register RegisterView = new Register();
+        //    string email = ConfigUtil.GetString("Marquee.register.email").Replace("@", "+" + (new Random()).Next(1000).ToString() + "@");
+        //    RegisterView.RegisterArtistUser(ConfigUtil.GetString("Marquee.register.name"), ConfigUtil.GetString("Marquee.register.lastname"), ConfigUtil.GetString("Marquee.register.zip"), email, email, ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.artist.name"), "", "", "", "", true);
+        //    
+        //    Assert.IsTrue(Browser.Instance.IsTextPresent(By.ClassName("error"), "Your password did not match the confirmed password!"));
+        //}
+        //
+        //Invalid Artist sign up - Long char Social Networks field
+        //
+        [TestMethod]
+        public void RegisterInvalidLongCharSocialNetworksFieldAsArtis()
+        {
+            Register RegisterView = new Register();
+            string email = ConfigUtil.GetString("Marquee.register.email").Replace("@", "+" + (new Random()).Next(1000).ToString() + "@");
+            RegisterView.RegisterArtistUser(ConfigUtil.GetString("Marquee.register.name"), ConfigUtil.GetString("Marquee.register.lastname"), ConfigUtil.GetString("Marquee.register.zip"), email, email, ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.artist.name"), "testnametestnametestnametestnametestnametestname", "testnametestnametestnametestnametestnametestname", "testnametestnametestnametestnametestnametestname", "testnametestnametestnametestnametestnametestname", true);
+            //Unable to validate this Assert because there is a bug when validating long chars for Social Networks field
+            Assert.IsTrue(Browser.Instance.IsTextPresent(By.ClassName("error"), "Your password did not match the confirmed password!"));
+        }
+        //
+        //Invalid General sign up - Empty Confirm Email Address field
+        //
+        [TestMethod]
+        public void RegisterInvalidEmptyConfirmEmailAddressFieldAsGeneral()
+        {
+            Register RegisterView = new Register();
+            string email = ConfigUtil.GetString("Marquee.register.email").Replace("@", "+" + (new Random()).Next(1000).ToString() + "@");
+            RegisterView.RegisterGeneralUser(ConfigUtil.GetString("Marquee.register.name"), ConfigUtil.GetString("Marquee.register.lastname"), ConfigUtil.GetString("Marquee.register.zip"), email, "", ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.pass"), true);
+            Assert.IsFalse(Browser.Instance.IsElementPresent(By.ClassName("error")));
         }
     }
 }
