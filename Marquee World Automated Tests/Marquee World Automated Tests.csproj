@@ -82,9 +82,11 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tests\Login.cs" />
+    <Compile Include="Tests\ResetPassword.cs" />
     <Compile Include="Tests\SignUp.cs" />
     <Compile Include="Util\ConfigUtil.cs" />
     <Compile Include="Util\Browser.cs" />
+    <Compile Include="View\Forgot Password.cs" />
     <Compile Include="View\Home.cs" />
     <Compile Include="View\Register.cs" />
   </ItemGroup>
