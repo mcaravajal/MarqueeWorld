@@ -123,7 +123,6 @@ namespace Marquee_World_Automated_Tests.Tests
         //    RegisterView.RegisterArtistUser(ConfigUtil.GetString("Marquee.register.name"), ConfigUtil.GetString("Marquee.register.lastname"), ConfigUtil.GetString("Marquee.register.zip"), email, email, ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.artist.name"), ConfigUtil.GetString("Marquee.register.artist.website"), ConfigUtil.GetString("Marquee.register.artist.facebook"), ConfigUtil.GetString("Marquee.register.artist.myspace"), ConfigUtil.GetString("Marquee.register.artist.twitter"), true);
         //    Assert.IsFalse(Browser.Instance.IsElementPresent(By.ClassName("error")));
         //}
-        //
         //Invalid Artist sign up - Empty Email Address field
         //
         [TestMethod]
