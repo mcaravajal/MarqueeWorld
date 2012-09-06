@@ -13,17 +13,20 @@ namespace Marquee_World_Automated_Tests.View
         //
         //Register as General User
         //
-        public void RegisterGeneralUser(string name, string lastname, int day, int month, int year, bool gender, string Zip, string email, string email2, string password, string password2, bool newsletter)
+        public void RegisterGeneralUser(string name, string lastname, int day, int month, int year, bool gender, string Zip, string email, string email2, string password, string password2, bool newsletter,bool submit)
         {
             RegisterUser(name, lastname, day, month, year, gender, Zip, email, email2, password, password2, newsletter);
-            Browser.Driver.FindElement(By.Id("submitform")).Click();
-            Browser.Instance.Wait(By.CssSelector("div.subtitle"));
+            if (submit)
+            {
+                Browser.Driver.FindElement(By.Id("submitform")).Click();
+                Browser.Instance.Wait(By.CssSelector("div.subtitle"));
+            }
         }
 
         //
         //Register as Artist User
         //
-        public void RegisterArtistUser(string name, string lastname, int day, int month, int year, bool gender, string Zip, string email, string email2, string password, string password2, string band, string website, string facebook, string myspace, string twitter, bool newsletter)
+        public void RegisterArtistUser(string name, string lastname, int day, int month, int year, bool gender, string Zip, string email, string email2, string password, string password2, string band, string website, string facebook, string myspace, string twitter, bool newsletter,bool submit)
         {
             RegisterUser(name, lastname, day, month, year, gender, Zip, email, email2, password, password2, newsletter);
             Browser.Driver.FindElement(By.Id("artist")).Click();
@@ -33,8 +36,10 @@ namespace Marquee_World_Automated_Tests.View
             Browser.Driver.FindElement(By.Name("myspace")).SendKeys(myspace);
             Browser.Driver.FindElement(By.Name("twitter")).SendKeys(twitter);
             Browser.Driver.FindElement(By.Id("eula_checkbox")).Click();
-            Browser.Driver.FindElement(By.Id("submitform")).Click();
-            
+            if (submit)
+            {
+                Browser.Driver.FindElement(By.Id("submitform")).Click();
+            }
         }
 
         private void RegisterUser(string name, string lastname, int day,int month,int year,bool gender, string Zip, string email, string email2, string password, string password2, bool newsletter)
