@@ -86,6 +86,7 @@
     <Compile Include="Tests\ForgotPasswordTests.cs" />
     <Compile Include="Tests\SignUp.cs" />
     <Compile Include="Tests\UpgradeToArtist.cs" />
+    <Compile Include="Tests\UploadVideo.cs" />
     <Compile Include="Util\ConfigUtil.cs" />
     <Compile Include="Util\Browser.cs" />
     <Compile Include="View\Account.cs" />
@@ -93,6 +94,7 @@
     <Compile Include="View\Home.cs" />
     <Compile Include="View\Register.cs" />
     <Compile Include="View\UpgradeAccount.cs" />
+    <Compile Include="View\Upload.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">

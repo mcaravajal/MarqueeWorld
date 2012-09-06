@@ -67,7 +67,7 @@ namespace Marquee_World_Automated_Tests.View
             Browser.Driver.FindElement(By.Id("email1")).SendKeys(email);
             Browser.Driver.FindElement(By.Id("email2")).SendKeys(email2);
             Browser.Driver.FindElement(By.Name("password1")).SendKeys(password);
-            Browser.Driver.FindElement(By.Name("password2")).SendKeys(password2);            
+            Browser.Driver.FindElement(By.Name("password2")).SendKeys(password2);
             if (newsletter)
                 Browser.Driver.FindElement(By.Id("newsletter")).Click();
         }
