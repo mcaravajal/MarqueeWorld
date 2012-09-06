@@ -13,7 +13,7 @@
     <add key="wait.timeout" value="60000" />
     
     <!--User name for Marquee General login-->
-    <add key="Marquee.User.General" value="cpecora+GeneralUser@makingsense.com"/>
+    <add key="Marquee.User.General" value="cpecora+259@makingsense.com"/>
 
     <!--Pass for Marquee General login-->
     <add key="Marquee.pass.General" value="carlitos"/>
@@ -53,6 +53,7 @@
 
     <!--Twitter of artist for Marquee register-->
     <add key="Marquee.Register.artist.twitter" value="QA twitter"/>
+<<<<<<< HEAD
 
     <!--Name of the user-->
     <add key="Marquee.account.name" value="AccountName"/>
@@ -65,5 +66,8 @@
 
     <!--Zip code of the user-->
     <add key="Marquee.account.zip" value="60657"/>    
+=======
+    
+>>>>>>> 5730ffa0c8e28dabdd6d6443b0304ce167924959
   </appSettings> 
 </configuration>
