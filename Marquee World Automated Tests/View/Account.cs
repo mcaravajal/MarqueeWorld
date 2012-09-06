@@ -9,6 +9,6 @@ namespace Marquee_World_Automated_Tests.View
 {
     public class Account
     {
-        public void Edit
+        //public void Edit
     }
 }
