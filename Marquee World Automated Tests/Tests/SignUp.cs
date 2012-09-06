@@ -31,7 +31,7 @@ namespace Marquee_World_Automated_Tests.Tests
         {
             Register RegisterView = new Register();
             string email = ConfigUtil.GetString("Marquee.register.email").Replace("@", "+" + (new Random()).Next(1000).ToString() + "@");
-            RegisterView.RegisterGeneralUser(ConfigUtil.GetString("Marquee.register.name"), ConfigUtil.GetString("Marquee.register.lastname"), 0, 0, 0, true, ConfigUtil.GetString("Marquee.register.zip"), email, email, ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.pass"), true);
+            RegisterView.RegisterGeneralUser(ConfigUtil.GetString("Marquee.register.name"), ConfigUtil.GetString("Marquee.register.lastname"), 0, 0, 0, true, ConfigUtil.GetString("Marquee.register.zip"), email, email, ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.pass"), true,true);
             Assert.IsTrue(Browser.Instance.IsTextPresent(By.CssSelector("div.subtitle"),"Thank You for Registering"));
           
         }
@@ -43,7 +43,7 @@ namespace Marquee_World_Automated_Tests.Tests
         {
             Register RegisterView = new Register();
             string email = ConfigUtil.GetString("Marquee.register.email").Replace("@", "+" + (new Random()).Next(1000).ToString() + "@");
-            RegisterView.RegisterArtistUser(ConfigUtil.GetString("Marquee.register.name"), ConfigUtil.GetString("Marquee.register.lastname"), 0, 0, 0, true, ConfigUtil.GetString("Marquee.register.zip"), email, email, ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.artist.name"), ConfigUtil.GetString("Marquee.register.artist.website"), ConfigUtil.GetString("Marquee.register.artist.facebook"), ConfigUtil.GetString("Marquee.register.artist.myspace"), ConfigUtil.GetString("Marquee.register.artist.twitter"), true);
+            RegisterView.RegisterArtistUser(ConfigUtil.GetString("Marquee.register.name"), ConfigUtil.GetString("Marquee.register.lastname"), 0, 0, 0, true, ConfigUtil.GetString("Marquee.register.zip"), email, email, ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.artist.name"), ConfigUtil.GetString("Marquee.register.artist.website"), ConfigUtil.GetString("Marquee.register.artist.facebook"), ConfigUtil.GetString("Marquee.register.artist.myspace"), ConfigUtil.GetString("Marquee.register.artist.twitter"), true,true);
             Assert.IsTrue(Browser.Instance.IsTextPresent(By.CssSelector("div.subtitle"), "Thank You for Registering"));
         }
         //
@@ -54,7 +54,7 @@ namespace Marquee_World_Automated_Tests.Tests
         {
             Register RegisterView = new Register();
             string email = ConfigUtil.GetString("Marquee.register.email").Replace("@", "+" + (new Random()).Next(1000).ToString() + "@");
-            RegisterView.RegisterGeneralUser(ConfigUtil.GetString("Marquee.register.name"), ConfigUtil.GetString("Marquee.register.lastname"), 0, 0, 0, true, ConfigUtil.GetString("Marquee.register.zip"), email, "email@dontmatch.com", ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.pass"), true);
+            RegisterView.RegisterGeneralUser(ConfigUtil.GetString("Marquee.register.name"), ConfigUtil.GetString("Marquee.register.lastname"), 0, 0, 0, true, ConfigUtil.GetString("Marquee.register.zip"), email, "email@dontmatch.com", ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.pass"), true,true);
             Assert.IsTrue(Browser.Instance.IsTextPresent(By.ClassName("error"), "Your email did not match the confirmed password!"));
         }
         //
@@ -65,7 +65,7 @@ namespace Marquee_World_Automated_Tests.Tests
         {
             Register RegisterView = new Register();
             string email = ConfigUtil.GetString("Marquee.register.email").Replace("@", "+" + (new Random()).Next(1000).ToString() + "@");
-            RegisterView.RegisterArtistUser(ConfigUtil.GetString("Marquee.register.name"), ConfigUtil.GetString("Marquee.register.lastname"), 0, 0, 0, true, ConfigUtil.GetString("Marquee.register.zip"), email, email, ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.artist.name"), ConfigUtil.GetString("Marquee.register.artist.website"), ConfigUtil.GetString("Marquee.register.artist.facebook"), ConfigUtil.GetString("Marquee.register.artist.myspace"), ConfigUtil.GetString("Marquee.register.artist.twitter"), true);
+            RegisterView.RegisterArtistUser(ConfigUtil.GetString("Marquee.register.name"), ConfigUtil.GetString("Marquee.register.lastname"), 0, 0, 0, true, ConfigUtil.GetString("Marquee.register.zip"), email, email, ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.artist.name"), ConfigUtil.GetString("Marquee.register.artist.website"), ConfigUtil.GetString("Marquee.register.artist.facebook"), ConfigUtil.GetString("Marquee.register.artist.myspace"), ConfigUtil.GetString("Marquee.register.artist.twitter"), true,true);
             Assert.IsTrue(Browser.Instance.IsTextPresent(By.ClassName("error"), "Your email did not match the confirmed password!"));
         }
         //
@@ -76,7 +76,7 @@ namespace Marquee_World_Automated_Tests.Tests
         {
             Register RegisterView = new Register();
             string email = ConfigUtil.GetString("Marquee.User.General");
-            RegisterView.RegisterArtistUser(ConfigUtil.GetString("Marquee.register.name"), ConfigUtil.GetString("Marquee.register.lastname"), 0, 0, 0, true, ConfigUtil.GetString("Marquee.register.zip"), email, email, ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.artist.name"), ConfigUtil.GetString("Marquee.register.artist.website"), ConfigUtil.GetString("Marquee.register.artist.facebook"), ConfigUtil.GetString("Marquee.register.artist.myspace"), ConfigUtil.GetString("Marquee.register.artist.twitter"), true);
+            RegisterView.RegisterArtistUser(ConfigUtil.GetString("Marquee.register.name"), ConfigUtil.GetString("Marquee.register.lastname"), 0, 0, 0, true, ConfigUtil.GetString("Marquee.register.zip"), email, email, ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.artist.name"), ConfigUtil.GetString("Marquee.register.artist.website"), ConfigUtil.GetString("Marquee.register.artist.facebook"), ConfigUtil.GetString("Marquee.register.artist.myspace"), ConfigUtil.GetString("Marquee.register.artist.twitter"), true,true);
             Assert.IsTrue(Browser.Instance.IsTextPresent(By.ClassName("error"), "This email already exist in our system.  Please enter a new email, or if you forgot your password you may "));
         }
         //
@@ -87,7 +87,7 @@ namespace Marquee_World_Automated_Tests.Tests
         {
             Register RegisterView = new Register();
             string email = ConfigUtil.GetString("Marquee.User.General");
-            RegisterView.RegisterGeneralUser(ConfigUtil.GetString("Marquee.register.name"), ConfigUtil.GetString("Marquee.register.lastname"), 0, 0, 0, true, ConfigUtil.GetString("Marquee.register.zip"), email, "email@dontmatch.com", ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.pass"), true);
+            RegisterView.RegisterGeneralUser(ConfigUtil.GetString("Marquee.register.name"), ConfigUtil.GetString("Marquee.register.lastname"), 0, 0, 0, true, ConfigUtil.GetString("Marquee.register.zip"), email, "email@dontmatch.com", ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.pass"), true,true);
             Assert.IsTrue(Browser.Instance.IsTextPresent(By.ClassName("error"), "This email already exist in our system.  Please enter a new email, or if you forgot your password you may "));
         }
         //
@@ -98,7 +98,7 @@ namespace Marquee_World_Automated_Tests.Tests
         {
             Register RegisterView = new Register();
             string email = ConfigUtil.GetString("Marquee.register.email").Replace("@", "+" + (new Random()).Next(1000).ToString() + "@");
-            RegisterView.RegisterArtistUser(ConfigUtil.GetString("Marquee.register.name"), ConfigUtil.GetString("Marquee.register.lastname"), 0, 0, 0, true, ConfigUtil.GetString("Marquee.register.zip"), email, email, ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.pass"), "", ConfigUtil.GetString("Marquee.register.artist.website"), ConfigUtil.GetString("Marquee.register.artist.facebook"), ConfigUtil.GetString("Marquee.register.artist.myspace"), ConfigUtil.GetString("Marquee.register.artist.twitter"), true);
+            RegisterView.RegisterArtistUser(ConfigUtil.GetString("Marquee.register.name"), ConfigUtil.GetString("Marquee.register.lastname"), 0, 0, 0, true, ConfigUtil.GetString("Marquee.register.zip"), email, email, ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.pass"), "", ConfigUtil.GetString("Marquee.register.artist.website"), ConfigUtil.GetString("Marquee.register.artist.facebook"), ConfigUtil.GetString("Marquee.register.artist.myspace"), ConfigUtil.GetString("Marquee.register.artist.twitter"), true,true);
             Assert.IsFalse(Browser.Instance.IsElementPresent(By.ClassName("error")));
         }
         //
@@ -109,7 +109,7 @@ namespace Marquee_World_Automated_Tests.Tests
         {
             Register RegisterView = new Register();
             string email = ConfigUtil.GetString("Marquee.register.email").Replace("@", "+" + (new Random()).Next(1000).ToString() + "@");
-            RegisterView.RegisterArtistUser(ConfigUtil.GetString("Marquee.register.name"), ConfigUtil.GetString("Marquee.register.lastname"), 0, 0, 0, true, ConfigUtil.GetString("Marquee.register.zip"), "", email, ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.artist.name"), ConfigUtil.GetString("Marquee.register.artist.website"), ConfigUtil.GetString("Marquee.register.artist.facebook"), ConfigUtil.GetString("Marquee.register.artist.myspace"), ConfigUtil.GetString("Marquee.register.artist.twitter"), true);
+            RegisterView.RegisterArtistUser(ConfigUtil.GetString("Marquee.register.name"), ConfigUtil.GetString("Marquee.register.lastname"), 0, 0, 0, true, ConfigUtil.GetString("Marquee.register.zip"), "", email, ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.artist.name"), ConfigUtil.GetString("Marquee.register.artist.website"), ConfigUtil.GetString("Marquee.register.artist.facebook"), ConfigUtil.GetString("Marquee.register.artist.myspace"), ConfigUtil.GetString("Marquee.register.artist.twitter"), true,true);
             Assert.IsFalse(Browser.Instance.IsElementPresent(By.ClassName("error")));
         }
         //
@@ -120,7 +120,7 @@ namespace Marquee_World_Automated_Tests.Tests
         {
             Register RegisterView = new Register();
             string email = ConfigUtil.GetString("Marquee.register.email").Replace("@", "+" + (new Random()).Next(1000).ToString() + "@");
-            RegisterView.RegisterArtistUser(ConfigUtil.GetString("Marquee.register.name"), ConfigUtil.GetString("Marquee.register.lastname"),99,99,99,false, ConfigUtil.GetString("Marquee.register.zip"), email, email, ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.artist.name"), ConfigUtil.GetString("Marquee.register.artist.website"), ConfigUtil.GetString("Marquee.register.artist.facebook"), ConfigUtil.GetString("Marquee.register.artist.myspace"), ConfigUtil.GetString("Marquee.register.artist.twitter"), true);
+            RegisterView.RegisterArtistUser(ConfigUtil.GetString("Marquee.register.name"), ConfigUtil.GetString("Marquee.register.lastname"),99,99,99,false, ConfigUtil.GetString("Marquee.register.zip"), email, email, ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.artist.name"), ConfigUtil.GetString("Marquee.register.artist.website"), ConfigUtil.GetString("Marquee.register.artist.facebook"), ConfigUtil.GetString("Marquee.register.artist.myspace"), ConfigUtil.GetString("Marquee.register.artist.twitter"), true,true);
             Assert.IsFalse(Browser.Instance.IsElementPresent(By.ClassName("error")));
         }
         //
@@ -131,7 +131,7 @@ namespace Marquee_World_Automated_Tests.Tests
         {
             Register RegisterView = new Register();
             string email = ConfigUtil.GetString("Marquee.register.email").Replace("@", "+" + (new Random()).Next(1000).ToString() + "@");
-            RegisterView.RegisterArtistUser(ConfigUtil.GetString("Marquee.register.name"), ConfigUtil.GetString("Marquee.register.lastname"),0,0,0,true, ConfigUtil.GetString("Marquee.register.zip"), email, "", ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.artist.name"), ConfigUtil.GetString("Marquee.register.artist.website"), ConfigUtil.GetString("Marquee.register.artist.facebook"), ConfigUtil.GetString("Marquee.register.artist.myspace"), ConfigUtil.GetString("Marquee.register.artist.twitter"), true);
+            RegisterView.RegisterArtistUser(ConfigUtil.GetString("Marquee.register.name"), ConfigUtil.GetString("Marquee.register.lastname"),0,0,0,true, ConfigUtil.GetString("Marquee.register.zip"), email, "", ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.artist.name"), ConfigUtil.GetString("Marquee.register.artist.website"), ConfigUtil.GetString("Marquee.register.artist.facebook"), ConfigUtil.GetString("Marquee.register.artist.myspace"), ConfigUtil.GetString("Marquee.register.artist.twitter"), true,true);
             Assert.IsFalse(Browser.Instance.IsElementPresent(By.ClassName("error")));
         }
         //
@@ -142,7 +142,7 @@ namespace Marquee_World_Automated_Tests.Tests
         {
             Register RegisterView = new Register();
             string email = ConfigUtil.GetString("Marquee.register.email").Replace("@", "+" + (new Random()).Next(1000).ToString() + "@");
-            RegisterView.RegisterArtistUser("", ConfigUtil.GetString("Marquee.register.lastname"),0,0,0,true, ConfigUtil.GetString("Marquee.register.zip"), email, email, ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.artist.name"), ConfigUtil.GetString("Marquee.register.artist.website"), ConfigUtil.GetString("Marquee.register.artist.facebook"), ConfigUtil.GetString("Marquee.register.artist.myspace"), ConfigUtil.GetString("Marquee.register.artist.twitter"), true);
+            RegisterView.RegisterArtistUser("", ConfigUtil.GetString("Marquee.register.lastname"),0,0,0,true, ConfigUtil.GetString("Marquee.register.zip"), email, email, ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.artist.name"), ConfigUtil.GetString("Marquee.register.artist.website"), ConfigUtil.GetString("Marquee.register.artist.facebook"), ConfigUtil.GetString("Marquee.register.artist.myspace"), ConfigUtil.GetString("Marquee.register.artist.twitter"), true,true);
             Assert.IsFalse(Browser.Instance.IsElementPresent(By.ClassName("error")));
         }
         //
@@ -153,7 +153,7 @@ namespace Marquee_World_Automated_Tests.Tests
         {
             Register RegisterView = new Register();
             string email = ConfigUtil.GetString("Marquee.register.email").Replace("@", "+" + (new Random()).Next(1000).ToString() + "@");
-            RegisterView.RegisterArtistUser(ConfigUtil.GetString("Marquee.register.name"), "",0,0,0,true, ConfigUtil.GetString("Marquee.register.zip"), email, email, ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.artist.name"), ConfigUtil.GetString("Marquee.register.artist.website"), ConfigUtil.GetString("Marquee.register.artist.facebook"), ConfigUtil.GetString("Marquee.register.artist.myspace"), ConfigUtil.GetString("Marquee.register.artist.twitter"), true);
+            RegisterView.RegisterArtistUser(ConfigUtil.GetString("Marquee.register.name"), "",0,0,0,true, ConfigUtil.GetString("Marquee.register.zip"), email, email, ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.artist.name"), ConfigUtil.GetString("Marquee.register.artist.website"), ConfigUtil.GetString("Marquee.register.artist.facebook"), ConfigUtil.GetString("Marquee.register.artist.myspace"), ConfigUtil.GetString("Marquee.register.artist.twitter"), true,true);
             Assert.IsFalse(Browser.Instance.IsElementPresent(By.ClassName("error")));
         }
         //
@@ -164,7 +164,7 @@ namespace Marquee_World_Automated_Tests.Tests
         {
             Register RegisterView = new Register();
             string email = ConfigUtil.GetString("Marquee.register.email").Replace("@", "+" + (new Random()).Next(1000).ToString() + "@");
-            RegisterView.RegisterArtistUser(ConfigUtil.GetString("Marquee.register.name"), ConfigUtil.GetString("Marquee.register.lastname"),0,0,0,true, ConfigUtil.GetString("Marquee.register.zip"), email, email, "", ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.artist.name"), ConfigUtil.GetString("Marquee.register.artist.website"), ConfigUtil.GetString("Marquee.register.artist.facebook"), ConfigUtil.GetString("Marquee.register.artist.myspace"), ConfigUtil.GetString("Marquee.register.artist.twitter"), true);
+            RegisterView.RegisterArtistUser(ConfigUtil.GetString("Marquee.register.name"), ConfigUtil.GetString("Marquee.register.lastname"),0,0,0,true, ConfigUtil.GetString("Marquee.register.zip"), email, email, "", ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.artist.name"), ConfigUtil.GetString("Marquee.register.artist.website"), ConfigUtil.GetString("Marquee.register.artist.facebook"), ConfigUtil.GetString("Marquee.register.artist.myspace"), ConfigUtil.GetString("Marquee.register.artist.twitter"), true,true);
             Assert.IsFalse(Browser.Instance.IsElementPresent(By.ClassName("error")));
         }
         //
@@ -175,7 +175,7 @@ namespace Marquee_World_Automated_Tests.Tests
         {
             Register RegisterView = new Register();
             string email = ConfigUtil.GetString("Marquee.register.email").Replace("@", "+" + (new Random()).Next(1000).ToString() + "@");
-            RegisterView.RegisterArtistUser(ConfigUtil.GetString("Marquee.register.name"), ConfigUtil.GetString("Marquee.register.lastname"),0,0,0,true, "", email, email, ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.artist.name"), ConfigUtil.GetString("Marquee.register.artist.website"), ConfigUtil.GetString("Marquee.register.artist.facebook"), ConfigUtil.GetString("Marquee.register.artist.myspace"), ConfigUtil.GetString("Marquee.register.artist.twitter"), true);
+            RegisterView.RegisterArtistUser(ConfigUtil.GetString("Marquee.register.name"), ConfigUtil.GetString("Marquee.register.lastname"),0,0,0,true, "", email, email, ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.artist.name"), ConfigUtil.GetString("Marquee.register.artist.website"), ConfigUtil.GetString("Marquee.register.artist.facebook"), ConfigUtil.GetString("Marquee.register.artist.myspace"), ConfigUtil.GetString("Marquee.register.artist.twitter"), true,true);
             Assert.IsFalse(Browser.Instance.IsElementPresent(By.ClassName("error")));
         }
         //
@@ -186,7 +186,7 @@ namespace Marquee_World_Automated_Tests.Tests
         {
             Register RegisterView = new Register();
             string email = ConfigUtil.GetString("Marquee.register.email").Replace("@", "+" + (new Random()).Next(1000).ToString() + "@");
-            RegisterView.RegisterArtistUser(ConfigUtil.GetString("Marquee.register.name"), ConfigUtil.GetString("Marquee.register.lastname"),0,0,0,true, ConfigUtil.GetString("Marquee.register.zip"), email, email, ConfigUtil.GetString("Marquee.register.pass"), "", ConfigUtil.GetString("Marquee.register.artist.name"), ConfigUtil.GetString("Marquee.register.artist.website"), ConfigUtil.GetString("Marquee.register.artist.facebook"), ConfigUtil.GetString("Marquee.register.artist.myspace"), ConfigUtil.GetString("Marquee.register.artist.twitter"), true);
+            RegisterView.RegisterArtistUser(ConfigUtil.GetString("Marquee.register.name"), ConfigUtil.GetString("Marquee.register.lastname"),0,0,0,true, ConfigUtil.GetString("Marquee.register.zip"), email, email, ConfigUtil.GetString("Marquee.register.pass"), "", ConfigUtil.GetString("Marquee.register.artist.name"), ConfigUtil.GetString("Marquee.register.artist.website"), ConfigUtil.GetString("Marquee.register.artist.facebook"), ConfigUtil.GetString("Marquee.register.artist.myspace"), ConfigUtil.GetString("Marquee.register.artist.twitter"), true,true);
             Assert.IsFalse(Browser.Instance.IsElementPresent(By.ClassName("error")));
         }
         //
@@ -197,7 +197,7 @@ namespace Marquee_World_Automated_Tests.Tests
         {
             Register RegisterView = new Register();
             string email = ConfigUtil.GetString("Marquee.register.email").Replace("@", "+" + (new Random()).Next(1000).ToString() + "@");
-            RegisterView.RegisterArtistUser(ConfigUtil.GetString("Marquee.register.name"), ConfigUtil.GetString("Marquee.register.lastname"),0,0,0,true, ConfigUtil.GetString("Marquee.register.zip"), email, email, ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.artist.name"), "", "", "", "", true);
+            RegisterView.RegisterArtistUser(ConfigUtil.GetString("Marquee.register.name"), ConfigUtil.GetString("Marquee.register.lastname"),0,0,0,true, ConfigUtil.GetString("Marquee.register.zip"), email, email, ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.artist.name"), "", "", "", "", true,true);
             Assert.IsTrue(Browser.Instance.IsTextPresent(By.CssSelector("div.subtitle"), "Thank You for Registering"));
         }
         //
@@ -208,7 +208,7 @@ namespace Marquee_World_Automated_Tests.Tests
         {
             Register RegisterView = new Register();
             string email = ConfigUtil.GetString("Marquee.register.email").Replace("@", "+" + (new Random()).Next(1000).ToString() + "@");
-            RegisterView.RegisterArtistUser(ConfigUtil.GetString("Marquee.register.name"), ConfigUtil.GetString("Marquee.register.lastname"),0,0,0,true, ConfigUtil.GetString("Marquee.register.zip"), email, email, ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.pass"), "!#$%&/", "", "", "", "", true);
+            RegisterView.RegisterArtistUser(ConfigUtil.GetString("Marquee.register.name"), ConfigUtil.GetString("Marquee.register.lastname"),0,0,0,true, ConfigUtil.GetString("Marquee.register.zip"), email, email, ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.pass"), "!#$%&/", "", "", "", "", true,true);
             //Unable to validate this Assert because there is a bug when validating invalid chars for Band/Artis Name field
             //Assert.IsTrue(Browser.Instance.IsTextPresent(By.CssSelector("div.subtitle"), "Thank You for Registering"));
         }
@@ -220,7 +220,7 @@ namespace Marquee_World_Automated_Tests.Tests
         {
             Register RegisterView = new Register();
             string email = ConfigUtil.GetString("Marquee.register.email").Replace("@", "+" + (new Random()).Next(1000).ToString() + "@");
-            RegisterView.RegisterArtistUser(ConfigUtil.GetString("Marquee.register.name"), ConfigUtil.GetString("Marquee.register.lastname"),0,0,0,true, ConfigUtil.GetString("Marquee.register.zip"), email, "!$%$&", ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.artist.name"), "", "", "", "", true);
+            RegisterView.RegisterArtistUser(ConfigUtil.GetString("Marquee.register.name"), ConfigUtil.GetString("Marquee.register.lastname"),0,0,0,true, ConfigUtil.GetString("Marquee.register.zip"), email, "!$%$&", ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.artist.name"), "", "", "", "", true,true);
             Assert.IsTrue(Browser.Instance.IsTextPresent(By.ClassName("error"), "Your email did not match the confirmed password"));
         }
         //
@@ -231,7 +231,7 @@ namespace Marquee_World_Automated_Tests.Tests
         {
             Register RegisterView = new Register();
             string email = ConfigUtil.GetString("Marquee.register.email").Replace("@", "+" + (new Random()).Next(1000).ToString() + "@");
-            RegisterView.RegisterArtistUser(ConfigUtil.GetString("Marquee.register.name"), ConfigUtil.GetString("Marquee.register.lastname"),0,0,2011,true, ConfigUtil.GetString("Marquee.register.zip"), email, "!$%$&", ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.artist.name"), "", "", "", "", true);
+            RegisterView.RegisterArtistUser(ConfigUtil.GetString("Marquee.register.name"), ConfigUtil.GetString("Marquee.register.lastname"),0,0,2011,true, ConfigUtil.GetString("Marquee.register.zip"), email, "!$%$&", ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.artist.name"), "", "", "", "", true,true);
             Assert.IsTrue(Browser.Instance.IsTextPresent(By.ClassName("error"), "Your email did not match the confirmed password"));
         }
         //
@@ -242,7 +242,7 @@ namespace Marquee_World_Automated_Tests.Tests
         {
             Register RegisterView = new Register();
             string email = ConfigUtil.GetString("Marquee.register.email").Replace("@", "+" + (new Random()).Next(1000).ToString() + "@");
-            RegisterView.RegisterArtistUser(ConfigUtil.GetString("Marquee.register.name"), ConfigUtil.GetString("Marquee.register.lastname"),0,0,0,true, ConfigUtil.GetString("Marquee.register.zip"), "!#$%", email, ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.artist.name"), "", "", "", "", true);
+            RegisterView.RegisterArtistUser(ConfigUtil.GetString("Marquee.register.name"), ConfigUtil.GetString("Marquee.register.lastname"),0,0,0,true, ConfigUtil.GetString("Marquee.register.zip"), "!#$%", email, ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.artist.name"), "", "", "", "", true,true);
             Assert.IsTrue(Browser.Instance.IsTextPresent(By.ClassName("error"), "Please enter a valid email address"));
         }
         //
@@ -253,7 +253,7 @@ namespace Marquee_World_Automated_Tests.Tests
         {
             Register RegisterView = new Register();
             string email = ConfigUtil.GetString("Marquee.register.email").Replace("@", "+" + (new Random()).Next(1000).ToString() + "@");
-            RegisterView.RegisterArtistUser("!%&/()/", ConfigUtil.GetString("Marquee.register.lastname"),0,0,0,true, ConfigUtil.GetString("Marquee.register.zip"), email, email, ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.artist.name"), "", "", "", "", true);
+            RegisterView.RegisterArtistUser("!%&/()/", ConfigUtil.GetString("Marquee.register.lastname"),0,0,0,true, ConfigUtil.GetString("Marquee.register.zip"), email, email, ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.artist.name"), "", "", "", "", true,true);
             Assert.IsTrue(Browser.Instance.IsTextPresent(By.ClassName("error"), "Your first name can only contain letters"));
         }
         //
@@ -264,7 +264,7 @@ namespace Marquee_World_Automated_Tests.Tests
         {
             Register RegisterView = new Register();
             string email = ConfigUtil.GetString("Marquee.register.email").Replace("@", "+" + (new Random()).Next(1000).ToString() + "@");
-            RegisterView.RegisterArtistUser(ConfigUtil.GetString("Marquee.register.name"), "!$%&%&",0,0,0,true, ConfigUtil.GetString("Marquee.register.zip"), email, email, ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.artist.name"), "", "", "", "", true);
+            RegisterView.RegisterArtistUser(ConfigUtil.GetString("Marquee.register.name"), "!$%&%&",0,0,0,true, ConfigUtil.GetString("Marquee.register.zip"), email, email, ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.artist.name"), "", "", "", "", true,true);
             Assert.IsTrue(Browser.Instance.IsTextPresent(By.ClassName("error"), "Your last name can only contain letters"));
         }
         //
@@ -275,7 +275,7 @@ namespace Marquee_World_Automated_Tests.Tests
         {
             Register RegisterView = new Register();
             string email = ConfigUtil.GetString("Marquee.register.email").Replace("@", "+" + (new Random()).Next(1000).ToString() + "@");
-            RegisterView.RegisterArtistUser(ConfigUtil.GetString("Marquee.register.name"), ConfigUtil.GetString("Marquee.register.lastname"),0,0,0,true, ConfigUtil.GetString("Marquee.register.zip"), email, email, "$%&$%", ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.artist.name"), "", "", "", "", true);
+            RegisterView.RegisterArtistUser(ConfigUtil.GetString("Marquee.register.name"), ConfigUtil.GetString("Marquee.register.lastname"),0,0,0,true, ConfigUtil.GetString("Marquee.register.zip"), email, email, "$%&$%", ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.artist.name"), "", "", "", "", true,true);
             Assert.IsTrue(Browser.Instance.IsTextPresent(By.ClassName("error"), "Please enter a valid password!"));
         }
         //
@@ -286,7 +286,7 @@ namespace Marquee_World_Automated_Tests.Tests
         {
             Register RegisterView = new Register();
             string email = ConfigUtil.GetString("Marquee.register.email").Replace("@", "+" + (new Random()).Next(1000).ToString() + "@");
-            RegisterView.RegisterArtistUser(ConfigUtil.GetString("Marquee.register.name"), ConfigUtil.GetString("Marquee.register.lastname"),0,0,0,true, "%&/%$&", email, email, ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.artist.name"), "", "", "", "", true);
+            RegisterView.RegisterArtistUser(ConfigUtil.GetString("Marquee.register.name"), ConfigUtil.GetString("Marquee.register.lastname"),0,0,0,true, "%&/%$&", email, email, ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.artist.name"), "", "", "", "", true,true);
             Assert.IsTrue(Browser.Instance.IsTextPresent(By.ClassName("error"), "Your Zip/Postal code is not the correct format. U.S. and Canadian accounts only."));
         }
         //
@@ -297,7 +297,7 @@ namespace Marquee_World_Automated_Tests.Tests
         {
             Register RegisterView = new Register();
             string email = ConfigUtil.GetString("Marquee.register.email").Replace("@", "+" + (new Random()).Next(1000).ToString() + "@");
-            RegisterView.RegisterArtistUser(ConfigUtil.GetString("Marquee.register.name"), ConfigUtil.GetString("Marquee.register.lastname"),0,0,0,true, ConfigUtil.GetString("Marquee.register.zip"), email, email, ConfigUtil.GetString("Marquee.register.pass"), "$%$%&$%", ConfigUtil.GetString("Marquee.register.artist.name"), "", "", "", "", true);
+            RegisterView.RegisterArtistUser(ConfigUtil.GetString("Marquee.register.name"), ConfigUtil.GetString("Marquee.register.lastname"),0,0,0,true, ConfigUtil.GetString("Marquee.register.zip"), email, email, ConfigUtil.GetString("Marquee.register.pass"), "$%$%&$%", ConfigUtil.GetString("Marquee.register.artist.name"), "", "", "", "", true,true);
             Assert.IsTrue(Browser.Instance.IsTextPresent(By.ClassName("error"), "Your password did not match the confirmed password!"));
         }
         //
@@ -308,7 +308,7 @@ namespace Marquee_World_Automated_Tests.Tests
         {
             Register RegisterView = new Register();
             string email = ConfigUtil.GetString("Marquee.register.email").Replace("@", "+" + (new Random()).Next(1000).ToString() + "@");
-            RegisterView.RegisterArtistUser(ConfigUtil.GetString("Marquee.register.name"), ConfigUtil.GetString("Marquee.register.lastname"),0,0,0,true, ConfigUtil.GetString("Marquee.register.zip"), email, email, ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.artist.name"), "%&/%&", "%&/", "&/$%$", "$$%%&&", true);
+            RegisterView.RegisterArtistUser(ConfigUtil.GetString("Marquee.register.name"), ConfigUtil.GetString("Marquee.register.lastname"),0,0,0,true, ConfigUtil.GetString("Marquee.register.zip"), email, email, ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.artist.name"), "%&/%&", "%&/", "&/$%$", "$$%%&&", true,true);
             //Unable to validate this Assert because there is a bug when validating invalid chars for Social Networks Name field
             Assert.IsTrue(Browser.Instance.IsTextPresent(By.ClassName("error"), "Your password did not match the confirmed password!"));
 
@@ -321,7 +321,7 @@ namespace Marquee_World_Automated_Tests.Tests
         {
             Register RegisterView = new Register();
             string email = ConfigUtil.GetString("Marquee.register.email").Replace("@", "+" + (new Random()).Next(1000).ToString() + "@");
-            RegisterView.RegisterArtistUser(ConfigUtil.GetString("Marquee.register.name"), ConfigUtil.GetString("Marquee.register.lastname"),0,0,0,true, ConfigUtil.GetString("Marquee.register.zip"), email, email, ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.artist.name"), "", "", "", "", true);
+            RegisterView.RegisterArtistUser(ConfigUtil.GetString("Marquee.register.name"), ConfigUtil.GetString("Marquee.register.lastname"),0,0,0,true, ConfigUtil.GetString("Marquee.register.zip"), email, email, ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.artist.name"), "", "", "", "", true,true);
             //Unable to validate this Assert because there is a bug when validating invalid chars for Band/Artist Name field
             Assert.IsTrue(Browser.Instance.IsTextPresent(By.ClassName("error"), "Your password did not match the confirmed password!"));
         }
@@ -333,7 +333,7 @@ namespace Marquee_World_Automated_Tests.Tests
         {
             Register RegisterView = new Register();
             string email = "testasdasdojasndoasdnaosdnasodnasodnasodnaosdnasodna@test.com";
-            RegisterView.RegisterArtistUser(ConfigUtil.GetString("Marquee.register.name"), ConfigUtil.GetString("Marquee.register.lastname"),0,0,0,true, ConfigUtil.GetString("Marquee.register.zip"), email, email, ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.pass"), "testnametestnametestnametestnametestnametestnametestname", "", "", "", "", true);
+            RegisterView.RegisterArtistUser(ConfigUtil.GetString("Marquee.register.name"), ConfigUtil.GetString("Marquee.register.lastname"),0,0,0,true, ConfigUtil.GetString("Marquee.register.zip"), email, email, ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.pass"), "testnametestnametestnametestnametestnametestnametestname", "", "", "", "", true,true);
             //Unable to validate this Assert because there is a bug when validating long chars for emails field
             Assert.IsTrue(Browser.Instance.IsTextPresent(By.ClassName("error"), "Your password did not match the confirmed password!"));
         }
@@ -345,7 +345,7 @@ namespace Marquee_World_Automated_Tests.Tests
         {
             Register RegisterView = new Register();
             string email = ConfigUtil.GetString("Marquee.register.email").Replace("@", "+" + (new Random()).Next(1000).ToString() + "@");
-            RegisterView.RegisterArtistUser(ConfigUtil.GetString("Marquee.register.name"), ConfigUtil.GetString("Marquee.register.lastname"),0,0,0,true, ConfigUtil.GetString("Marquee.register.zip"), email, email, ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.artist.name"), "testnametestnametestnametestnametestnametestname", "testnametestnametestnametestnametestnametestname", "testnametestnametestnametestnametestnametestname", "testnametestnametestnametestnametestnametestname", true);
+            RegisterView.RegisterArtistUser(ConfigUtil.GetString("Marquee.register.name"), ConfigUtil.GetString("Marquee.register.lastname"),0,0,0,true, ConfigUtil.GetString("Marquee.register.zip"), email, email, ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.artist.name"), "testnametestnametestnametestnametestnametestname", "testnametestnametestnametestnametestnametestname", "testnametestnametestnametestnametestnametestname", "testnametestnametestnametestnametestnametestname", true,true);
             //Unable to validate this Assert because there is a bug when validating long chars for Social Networks field
             Assert.IsTrue(Browser.Instance.IsTextPresent(By.ClassName("error"), "Your password did not match the confirmed password!"));
         }
@@ -357,7 +357,7 @@ namespace Marquee_World_Automated_Tests.Tests
         {
             Register RegisterView = new Register();
             string email = ConfigUtil.GetString("Marquee.register.email").Replace("@", "+" + (new Random()).Next(1000).ToString() + "@");
-            RegisterView.RegisterGeneralUser(ConfigUtil.GetString("Marquee.register.name"), ConfigUtil.GetString("Marquee.register.lastname"),0,0,0,true, ConfigUtil.GetString("Marquee.register.zip"), email, "", ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.pass"), true);
+            RegisterView.RegisterGeneralUser(ConfigUtil.GetString("Marquee.register.name"), ConfigUtil.GetString("Marquee.register.lastname"),0,0,0,true, ConfigUtil.GetString("Marquee.register.zip"), email, "", ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.pass"), true,true);
             Assert.IsFalse(Browser.Instance.IsElementPresent(By.ClassName("error")));
         }
         //
@@ -368,7 +368,7 @@ namespace Marquee_World_Automated_Tests.Tests
         {
             Register RegisterView = new Register();
             string email = ConfigUtil.GetString("Marquee.register.email").Replace("@", "+" + (new Random()).Next(1000).ToString() + "@");
-            RegisterView.RegisterGeneralUser(ConfigUtil.GetString("Marquee.register.name"), ConfigUtil.GetString("Marquee.register.lastname"),0,0,0,true, ConfigUtil.GetString("Marquee.register.zip"), "", email, ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.pass"), true);
+            RegisterView.RegisterGeneralUser(ConfigUtil.GetString("Marquee.register.name"), ConfigUtil.GetString("Marquee.register.lastname"),0,0,0,true, ConfigUtil.GetString("Marquee.register.zip"), "", email, ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.pass"), true,true);
             Assert.IsFalse(Browser.Instance.IsElementPresent(By.ClassName("error")));
         }
         //
@@ -379,7 +379,7 @@ namespace Marquee_World_Automated_Tests.Tests
         {
             Register RegisterView = new Register();
             string email = ConfigUtil.GetString("Marquee.register.email").Replace("@", "+" + (new Random()).Next(1000).ToString() + "@");
-            RegisterView.RegisterGeneralUser("", ConfigUtil.GetString("Marquee.register.lastname"),0,0,0,true, ConfigUtil.GetString("Marquee.register.zip"), email, email, ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.pass"), true);
+            RegisterView.RegisterGeneralUser("", ConfigUtil.GetString("Marquee.register.lastname"),0,0,0,true, ConfigUtil.GetString("Marquee.register.zip"), email, email, ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.pass"), true,true);
             Assert.IsFalse(Browser.Instance.IsElementPresent(By.ClassName("error")));
         }
         //
@@ -390,9 +390,217 @@ namespace Marquee_World_Automated_Tests.Tests
         //{
         //    Register RegisterView = new Register();
         //    string email = ConfigUtil.GetString("Marquee.register.email").Replace("@", "+" + (new Random()).Next(1000).ToString() + "@");
-        //    RegisterView.RegisterGeneralUser("", ConfigUtil.GetString("Marquee.register.lastname"), ConfigUtil.GetString("Marquee.register.zip"), email, email, ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.pass"), true);
+        //    RegisterView.RegisterGeneralUser("", ConfigUtil.GetString("Marquee.register.lastname"), ConfigUtil.GetString("Marquee.register.zip"), email, email, ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.pass"), true,true);
         //    Assert.IsFalse(Browser.Instance.IsElementPresent(By.ClassName("error")));
         //}
+        //
+        //Invalid General sign up - Empty Last Name field
+        //
+        [TestMethod]
+        public void RegisterInvalidEmptyLastNameFieldAsGeneral()
+        {
+            Register RegisterView = new Register();
+            string email = ConfigUtil.GetString("Marquee.register.email").Replace("@", "+" + (new Random()).Next(1000).ToString() + "@");
+            RegisterView.RegisterGeneralUser(ConfigUtil.GetString("Marquee.register.name"), "", 0, 0, 0, true, ConfigUtil.GetString("Marquee.register.zip"), email, email, ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.pass"), true,true);
+            Assert.IsFalse(Browser.Instance.IsElementPresent(By.ClassName("error")));
+        }
+        //
+        //Invalid General sign up - Empty Password field
+        //
+        [TestMethod]
+        public void RegisterInvalidEmptyPasswordFieldAsGeneral()
+        {
+            Register RegisterView = new Register();
+            string email = ConfigUtil.GetString("Marquee.register.email").Replace("@", "+" + (new Random()).Next(1000).ToString() + "@");
+            RegisterView.RegisterGeneralUser(ConfigUtil.GetString("Marquee.register.name"), ConfigUtil.GetString("Marquee.register.lastname"), 0, 0, 0, true, ConfigUtil.GetString("Marquee.register.zip"), "", email, ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.pass"), true,true);
+            Assert.IsFalse(Browser.Instance.IsElementPresent(By.ClassName("error")));
+        }
+        //
+        //Invalid General sign up - Empty Postal Code field
+        //
+        [TestMethod]
+        public void RegisterInvalidEmptyPostalCodeFieldAsGeneral()
+        {
+            Register RegisterView = new Register();
+            string email = ConfigUtil.GetString("Marquee.register.email").Replace("@", "+" + (new Random()).Next(1000).ToString() + "@");
+            RegisterView.RegisterGeneralUser(ConfigUtil.GetString("Marquee.register.name"), ConfigUtil.GetString("Marquee.register.lastname"), 0, 0, 0, true, "", email, email, ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.pass"), true,true);
+            Assert.IsFalse(Browser.Instance.IsElementPresent(By.ClassName("error")));
+        }
+        //
+        //Invalid General sign up - Empty Re-Enter Password field
+        //
+        [TestMethod]
+        public void RegisterInvalidEmptyReEnterPasswordFieldAsGeneral()
+        {
+            Register RegisterView = new Register();
+            string email = ConfigUtil.GetString("Marquee.register.email").Replace("@", "+" + (new Random()).Next(1000).ToString() + "@");
+            RegisterView.RegisterGeneralUser(ConfigUtil.GetString("Marquee.register.name"), ConfigUtil.GetString("Marquee.register.lastname"), 0, 0, 0, true, ConfigUtil.GetString("Marquee.register.zip"), email, email, ConfigUtil.GetString("Marquee.register.pass"), "", true,true);
+            Assert.IsFalse(Browser.Instance.IsElementPresent(By.ClassName("error")));
+        }
+        //
+        //Invalid General sign up - Invalid char Confirm Email Address field
+        //
+        [TestMethod]
+        public void RegisterInvalidCharConfirmEmailAddressFieldAsGeneral()
+        {
+            Register RegisterView = new Register();
+            string email = ConfigUtil.GetString("Marquee.register.email").Replace("@", "+" + (new Random()).Next(1000).ToString() + "@");
+            RegisterView.RegisterGeneralUser(ConfigUtil.GetString("Marquee.register.name"), ConfigUtil.GetString("Marquee.register.lastname"), 0, 0, 0, true, ConfigUtil.GetString("Marquee.register.zip"), email, "(/&%/%&/@mail.com", ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.pass"), true,true);
+            Assert.IsTrue(Browser.Instance.IsTextPresent(By.ClassName("error"), "Your email did not match the confirmed password!"));
+        }
+        //
+        //Invalid General sign up - Invalid char Email Address field
+        //
+        [TestMethod]
+        public void RegisterInvalidCharEmailAddressFieldAsGeneral()
+        {
+            Register RegisterView = new Register();
+            string email = ConfigUtil.GetString("Marquee.register.email").Replace("@", "+" + (new Random()).Next(1000).ToString() + "@");
+            RegisterView.RegisterGeneralUser(ConfigUtil.GetString("Marquee.register.name"), ConfigUtil.GetString("Marquee.register.lastname"), 0, 0, 0, true, ConfigUtil.GetString("Marquee.register.zip"), "%&/%&/%&/@email.com", email, ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.pass"), true,true);
+            Assert.IsTrue(Browser.Instance.IsTextPresent(By.ClassName("error"), "Your email did not match the confirmed password!"));
+        }
+        //
+        //Invalid General sign up - Invalid char First Name field
+        //
+        [TestMethod]
+        public void RegisterInvalidCharFirstNameFieldAsGeneral()
+        {
+            Register RegisterView = new Register();
+            string email = ConfigUtil.GetString("Marquee.register.email").Replace("@", "+" + (new Random()).Next(1000).ToString() + "@");
+            RegisterView.RegisterGeneralUser("%&/%&/%&/%&%/", ConfigUtil.GetString("Marquee.register.lastname"), 0, 0, 0, true, ConfigUtil.GetString("Marquee.register.zip"), email, email, ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.pass"), true,true);
+            Assert.IsTrue(Browser.Instance.IsTextPresent(By.ClassName("error"), "Your first name can only contain letters"));
+        }
+        //
+        //Invalid General sign up - Invalid char Last Name field
+        //
+        [TestMethod]
+        public void RegisterInvalidCharLastNameFieldAsGeneral()
+        {
+            Register RegisterView = new Register();
+            string email = ConfigUtil.GetString("Marquee.register.email").Replace("@", "+" + (new Random()).Next(1000).ToString() + "@");
+            RegisterView.RegisterGeneralUser(ConfigUtil.GetString("Marquee.register.name"), "%&/%&/%&", 0, 0, 0, true, ConfigUtil.GetString("Marquee.register.zip"), email, email, ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.pass"), true,true);
+            Assert.IsTrue(Browser.Instance.IsTextPresent(By.ClassName("error"), "Your last name can only contain letters"));
+        }
+        //
+        //Invalid General sign up - Invalid char Password field
+        //
+        [TestMethod]
+        public void RegisterInvalidCharPasswordFieldAsGeneral()
+        {
+            Register RegisterView = new Register();
+            string email = ConfigUtil.GetString("Marquee.register.email").Replace("@", "+" + (new Random()).Next(1000).ToString() + "@");
+            RegisterView.RegisterGeneralUser(ConfigUtil.GetString("Marquee.register.name"), ConfigUtil.GetString("Marquee.register.lastname"), 0, 0, 0, true, ConfigUtil.GetString("Marquee.register.zip"), email, email, "%&//(&/(&/", ConfigUtil.GetString("Marquee.register.pass"), true,true);
+            Assert.IsTrue(Browser.Instance.IsTextPresent(By.ClassName("error"), "Please enter a valid password!"));
+        }
+        //
+        //Invalid General sign up - Invalid char Postal Code field
+        //
+        [TestMethod]
+        public void RegisterInvalidCharPostalCodeFieldAsGeneral()
+        {
+            Register RegisterView = new Register();
+            string email = ConfigUtil.GetString("Marquee.register.email").Replace("@", "+" + (new Random()).Next(1000).ToString() + "@");
+            RegisterView.RegisterGeneralUser(ConfigUtil.GetString("Marquee.register.name"), ConfigUtil.GetString("Marquee.register.lastname"), 0, 0, 0, true, "&/(&/(&/(&¡/(", email, email, ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.pass"), true,true);
+            Assert.IsTrue(Browser.Instance.IsTextPresent(By.ClassName("error"), "Your Zip/Postal code is not the correct format. U.S. and Canadian accounts only."));
+        }
+        //
+        //Invalid General sign up - Invalid char Re-Enter Password field
+        //
+        [TestMethod]
+        public void RegisterInvalidCharReEnterPasswordCodeFieldAsGeneral()
+        {
+            Register RegisterView = new Register();
+            string email = ConfigUtil.GetString("Marquee.register.email").Replace("@", "+" + (new Random()).Next(1000).ToString() + "@");
+            RegisterView.RegisterGeneralUser(ConfigUtil.GetString("Marquee.register.name"), ConfigUtil.GetString("Marquee.register.lastname"), 0, 0, 0, true, ConfigUtil.GetString("Marquee.register.zip"), email, email, ConfigUtil.GetString("Marquee.register.pass"), "&/(&/(&/(&", true,true);
+            Assert.IsTrue(Browser.Instance.IsTextPresent(By.ClassName("error"), "Your password did not match the confirmed password!"));
+        }
+        //
+        //Invalid General sign up - Long char Confirm Email Address field
+        //
+        [TestMethod]
+        public void RegisterInvalidLongCharConfirmEmailAddressCodeFieldAsGeneral()
+        {
+            Register RegisterView = new Register();
+            string email = ConfigUtil.GetString("Marquee.register.email").Replace("@", "+" + (new Random()).Next(1000).ToString() + "@");
+            RegisterView.RegisterGeneralUser(ConfigUtil.GetString("Marquee.register.name"), ConfigUtil.GetString("Marquee.register.lastname"), 0, 0, 0, true, ConfigUtil.GetString("Marquee.register.zip"), email, email, "testnametestnametestnametestnametestname", "testnametestnametestnametestnametestname", true,true);
+            //Unable to verify this test case because there is a bug when validating the long char. Also need to change the Assert error message
+            Assert.IsTrue(Browser.Instance.IsTextPresent(By.ClassName("error"), "Your Zip/Postal code is not the correct format. U.S. and Canadian accounts only."));
+        }
+        //
+        //Invalid General sign up - Long char Email Address field
+        //
+        [TestMethod]
+        public void RegisterInvalidLongCharEmailAddressFieldAsGeneral()
+        {
+            Register RegisterView = new Register();
+            string email = ConfigUtil.GetString("Marquee.register.email").Replace("@", "+" + (new Random()).Next(1000).ToString() + "@");
+            RegisterView.RegisterGeneralUser(ConfigUtil.GetString("Marquee.register.name"), ConfigUtil.GetString("Marquee.register.lastname"), 0, 0, 0, true, ConfigUtil.GetString("Marquee.register.zip"), email, email, "testnametestnametestnametestnametestname", "testnametestnametestnametestnametestname", true,true);
+            //Unable to verify this test case because there is a bug when validating the long char. Also need to change the Assert error message
+            Assert.IsTrue(Browser.Instance.IsTextPresent(By.ClassName("error"), "Your Zip/Postal code is not the correct format. U.S. and Canadian accounts only."));
+        }
+        //
+        //Invalid General sign up - Long char First Name field
+        // 
+        [TestMethod]
+        public void RegisterInvalidLongCharFirstNameFieldAsGeneral()
+        {
+            Register RegisterView = new Register();
+            string email = ConfigUtil.GetString("Marquee.register.email").Replace("@", "+" + (new Random()).Next(1000).ToString() + "@");
+            string name = "FirstNameFirstNameFirstName";
+            RegisterView.RegisterGeneralUser(name, ConfigUtil.GetString("Marquee.register.lastname"), 0, 0, 0, true, ConfigUtil.GetString("Marquee.register.zip"), email, email, ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.pass"), true,false);
+            int length = Browser.Driver.FindElement(By.Id("fname")).Text.Count();
+            Assert.AreEqual(Browser.Driver.FindElement(By.Id("fname")).GetAttribute("value").Length, 20);
+        }
+        //
+        //Invalid General sign up - Long char Last Name field
+        // 
+        [TestMethod]
+        public void RegisterInvalidLongCharLastNameFieldAsGeneral()
+        {
+            Register RegisterView = new Register();
+            string email = ConfigUtil.GetString("Marquee.register.email").Replace("@", "+" + (new Random()).Next(1000).ToString() + "@");
+            string name = "ddsfdsfdsfdssdfsdfsdffdsdfsdsfdsfsfdsfdsfdsfdsfsf";
+            RegisterView.RegisterGeneralUser(ConfigUtil.GetString("Marquee.register.name"), name, 0, 0, 0, true, ConfigUtil.GetString("Marquee.register.zip"), email, email, ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.pass"), true, false);
+            Assert.AreEqual(Browser.Driver.FindElement(By.Id("lname")).GetAttribute("value").Length, 40);
+        }
+        //
+        //Invalid General sign up - Long char Password field
+        // 
+        [TestMethod]
+        public void RegisterInvalidLongCharPasswordFieldAsGeneral()
+        {
+            Register RegisterView = new Register();
+            string email = ConfigUtil.GetString("Marquee.register.email").Replace("@", "+" + (new Random()).Next(1000).ToString() + "@");
+            string name = "ddsfdsfdsfdssdfsdfsdffdsdfsdsfdsfsfdsfdsfdsfdsfsf";
+            RegisterView.RegisterGeneralUser(ConfigUtil.GetString("Marquee.register.name"), ConfigUtil.GetString("Marquee.register.lastname"), 0, 0, 0, true, ConfigUtil.GetString("Marquee.register.zip"), email, email, name, ConfigUtil.GetString("Marquee.register.pass"), true, false);
+            Assert.AreEqual(Browser.Driver.FindElement(By.Name("password1")).GetAttribute("value").Length, 20);
+        }
+        //
+        //Invalid General sign up - Long char Postal Code field
+        // 
+        [TestMethod]
+        public void RegisterInvalidLongCharPostalCodeFieldAsGeneral()
+        {
+            Register RegisterView = new Register();
+            string email = ConfigUtil.GetString("Marquee.register.email").Replace("@", "+" + (new Random()).Next(1000).ToString() + "@");
+            string name = "ddsfdsfdsfdssdfsdfsdffdsdfsdsfdsfsfdsfdsfdsfdsfsf";
+            RegisterView.RegisterGeneralUser(ConfigUtil.GetString("Marquee.register.name"), ConfigUtil.GetString("Marquee.register.lastname"), 0, 0, 0, true, name, email, email, ConfigUtil.GetString("Marquee.register.pass"), ConfigUtil.GetString("Marquee.register.pass"), true, false);
+            Assert.AreEqual(Browser.Driver.FindElement(By.Id("zip")).GetAttribute("value").Length, 7);
+        }
+        //
+        //Invalid General sign up - Long char Re-Enter Password field
+        // 
+        [TestMethod]
+        public void RegisterInvalidLongCharReEnterPasswordFieldAsGeneral()
+        {
+            Register RegisterView = new Register();
+            string email = ConfigUtil.GetString("Marquee.register.email").Replace("@", "+" + (new Random()).Next(1000).ToString() + "@");
+            string name = "ddsfdsfdsfdssdfsdfsdffdsdfsdsfdsfsfdsfdsfdsfdsfsf";
+            RegisterView.RegisterGeneralUser(ConfigUtil.GetString("Marquee.register.name"), ConfigUtil.GetString("Marquee.register.lastname"), 0, 0, 0, true, ConfigUtil.GetString("Marquee.register.zip"), email, email, ConfigUtil.GetString("Marquee.register.pass"), name, true, false);
+            Assert.AreEqual(Browser.Driver.FindElement(By.Name("password2")).GetAttribute("value").Length, 20);
+        }
+       
+
     }
 }
 
