@@ -218,16 +218,17 @@ namespace Marquee_World_Automated_Tests.Tests
         [TestMethod]
         public void EditArtistNameSuccesfully()
         {
+            string toedit = "band";
             Account accountView = new Account();
             //Setting a different name to check after the edition
             string newname = ConfigUtil.GetString("Marquee.register.artist.name") + new Random().Next(10000, 99999);
-            accountView.EditArtistName(newname);
+            accountView.EditArtistInfo(newname,toedit);
             string aux = string.Empty;
             while (aux != "display: none;")
             {
-                aux = Browser.Driver.FindElement(By.Id("input_band")).GetAttribute("Style");
+                aux = Browser.Driver.FindElement(By.Id("input_"+toedit)).GetAttribute("Style");
             }
-            Assert.IsTrue(Browser.Instance.IsTextPresent(By.Id("text_band"), newname));
+            Assert.IsTrue(Browser.Instance.IsTextPresent(By.Id("text_"+toedit), newname));
         }
         //
         //Edit Artist leaving the field name empty
@@ -235,11 +236,12 @@ namespace Marquee_World_Automated_Tests.Tests
         [TestMethod]
         public void EditArtistNameEmtpy()
         {
+            string toedit = "band";
             Account accountView = new Account();
-            accountView.EditArtistName("");
+            accountView.EditArtistInfo("",toedit);
             //Click on any where to change the focus from the input
             Browser.Driver.FindElement(By.Id("box_form")).Click();
-            Assert.IsTrue(Browser.Instance.IsTextPresent(By.Id("text_band"), ""));
+            Assert.IsFalse(Browser.Instance.IsTextPresent(By.Id("text_"+toedit), ""));
         }
         //
         //Edit Artist with a long name
@@ -247,10 +249,11 @@ namespace Marquee_World_Automated_Tests.Tests
         [TestMethod]
         public void EditLongArtistName()
         {
+            string toedit = "band";
             Account accountView = new Account();
             string name = "123132132132132132132132131313231321321321323213213213";
-            accountView.EditArtistName(name);
-            Assert.IsTrue(Browser.Instance.IsTextPresent(By.Id("text_band"), name));
+            accountView.EditArtistInfo(name,toedit);
+            Assert.IsFalse(Browser.Instance.IsTextPresent(By.Id("text_"+toedit), name));
         }
         //
         //Edit Artist name with invalid chars
@@ -258,11 +261,220 @@ namespace Marquee_World_Automated_Tests.Tests
         [TestMethod]
         public void EditArtistNameInvalid()
         {
+            string toedit="band";
             Account accountView = new Account();
             string name = "!#$%&/()=?=)(/&%&/()=?@☺☻♥♦♣♠•◘○";
-            accountView.EditArtistName(name);
+            accountView.EditArtistInfo(name,toedit);
             //Can not check because is not checking the name inupts
-            Assert.IsTrue(Browser.Instance.IsTextPresent(By.Id("text_band"), name));
+            Assert.IsFalse(Browser.Instance.IsTextPresent(By.Id("text_"+toedit), name));
+        }
+        //
+        //Edit Artist website succesfully
+        //
+        [TestMethod]
+        public void EditArtistWebsiteSuccesfully()
+        {
+            string toedit = "website";
+            Account accountView = new Account();
+            //Setting a different name to check after the edition
+            string newname = ConfigUtil.GetString("Marquee.register.artist.website") + new Random().Next(10000, 99999);
+            accountView.EditArtistInfo(newname,toedit);
+            Browser.Instance.Wait(5000);
+            Assert.IsTrue(Browser.Instance.IsTextPresent(By.Id("text_"+toedit), newname));
+        }
+        //
+        //Edit Artist leaving the field website empty
+        //
+        [TestMethod]
+        public void EditArtistWebsiteEmtpy()
+        {
+            string toedit = "website";
+            Account accountView = new Account();
+            accountView.EditArtistInfo("",toedit);
+            //Click on any where to change the focus from the input
+            Browser.Driver.FindElement(By.Id("box_form")).Click();
+            Assert.IsFalse(Browser.Instance.IsTextPresent(By.Id("text_"+toedit), ""));
+        }
+        //
+        //Edit Artist with a long website
+        //
+        [TestMethod]
+        public void EditLongArtistWebsite()
+        {
+            string toedit = "website";
+            Account accountView = new Account();
+            string name = "123132132132132132132132131313231321321321323213213213";
+            accountView.EditArtistInfo(name,toedit);
+            Assert.IsFalse(Browser.Instance.IsTextPresent(By.Id("text_"+toedit), name));
+        }
+        //
+        //Edit Artist website with invalid chars
+        //
+        [TestMethod]
+        public void EditArtistWebsiteInvalid()
+        {
+            string toedit = "website";
+            Account accountView = new Account();
+            string name = "!#$%&/()=?=)(/&%&/()=?@☺☻♥♦♣♠•◘○";
+            accountView.EditArtistInfo(name,toedit);
+            //Can not check because is not checking the name inupts
+            Assert.IsFalse(Browser.Instance.IsTextPresent(By.Id("text_"+toedit), name));
+        }
+        //
+        //Edit Artist facebook succesfully
+        //
+        [TestMethod]
+        public void EditArtistFacebookSuccesfully()
+        {
+            string toedit = "facebook";
+            Account accountView = new Account();
+            //Setting a different name to check after the edition
+            string newname = ConfigUtil.GetString("Marquee.register.artist.facebook") + new Random().Next(10000, 99999);
+            accountView.EditArtistInfo(newname,toedit);
+            Browser.Instance.Wait(5000);
+            Assert.IsTrue(Browser.Instance.IsTextPresent(By.Id("text_"+toedit), newname));
+        }
+        //
+        //Edit Artist leaving the field facebook empty
+        //
+        [TestMethod]
+        public void EditArtistFacebookEmtpy()
+        {
+            string toedit = "facebook";
+            Account accountView = new Account();
+            accountView.EditArtistInfo("", toedit);
+            //Click on any where to change the focus from the input
+            Browser.Driver.FindElement(By.Id("box_form")).Click();
+            Assert.IsFalse(Browser.Instance.IsTextPresent(By.Id("text_" + toedit), ""));
+        }
+        //
+        //Edit Artist with a long facebook
+        //
+        [TestMethod]
+        public void EditLongArtistFacebook()
+        {
+            string toedit = "facebook";
+            Account accountView = new Account();
+            string name = "123132132132132132132132131313231321321321323213213213";
+            accountView.EditArtistInfo(name, toedit);
+            Assert.IsFalse(Browser.Instance.IsTextPresent(By.Id("text_" + toedit), name));
+        }
+        //
+        //Edit Artist facebook with invalid chars
+        //
+        [TestMethod]
+        public void EditArtistFacebookInvalid()
+        {
+            string toedit = "facebook";
+            Account accountView = new Account();
+            string name = "!#$%&/()=?=)(/&%&/()=?@☺☻♥♦♣♠•◘○";
+            accountView.EditArtistInfo(name, toedit);
+            //Can not check because is not checking the name inupts
+            Assert.IsFalse(Browser.Instance.IsTextPresent(By.Id("text_" + toedit), name));
+        }
+        //
+        //Edit Artist myspace succesfully
+        //
+        [TestMethod]
+        public void EditArtistMySpaceSuccesfully()
+        {
+            string toedit = "myspace";
+            Account accountView = new Account();
+            //Setting a different name to check after the edition
+            string newname = ConfigUtil.GetString("Marquee.register.artist.myspace") + new Random().Next(10000, 99999);
+            accountView.EditArtistInfo(newname, toedit);
+            Browser.Instance.Wait(5000);
+            Assert.IsTrue(Browser.Instance.IsTextPresent(By.Id("text_" + toedit), newname));
+        }
+        //
+        //Edit Artist leaving the field myspace empty
+        //
+        [TestMethod]
+        public void EditArtistMySpaceEmtpy()
+        {
+            string toedit = "myspace";
+            Account accountView = new Account();
+            accountView.EditArtistInfo("", toedit);
+            //Click on any where to change the focus from the input
+            Browser.Driver.FindElement(By.Id("box_form")).Click();
+            Assert.IsFalse(Browser.Instance.IsTextPresent(By.Id("text_" + toedit), ""));
+        }
+        //
+        //Edit Artist with a long myspace
+        //
+        [TestMethod]
+        public void EditLongArtistMySpace()
+        {
+            string toedit = "myspace";
+            Account accountView = new Account();
+            string name = "123132132132132132132132131313231321321321323213213213";
+            accountView.EditArtistInfo(name, toedit);
+            Assert.IsFalse(Browser.Instance.IsTextPresent(By.Id("text_" + toedit), name));
+        }
+        //
+        //Edit Artist myspace with invalid chars
+        //
+        [TestMethod]
+        public void EditArtistMySpaceInvalid()
+        {
+            string toedit = "myspace";
+            Account accountView = new Account();
+            string name = "!#$%&/()=?=)(/&%&/()=?@☺☻♥♦♣♠•◘○";
+            accountView.EditArtistInfo(name, toedit);
+            //Can not check because is not checking the name inupts
+            Assert.IsFalse(Browser.Instance.IsTextPresent(By.Id("text_" + toedit), name));
+        }
+        //
+        //Edit Artist twitter succesfully
+        //
+        [TestMethod]
+        public void EditArtistTwitterSuccesfully()
+        {
+            string toedit = "twitter";
+            Account accountView = new Account();
+            //Setting a different name to check after the edition
+            string newname = ConfigUtil.GetString("Marquee.register.artist.myspace") + new Random().Next(10000, 99999);
+            accountView.EditArtistInfo(newname, toedit);
+            Browser.Instance.Wait(5000);
+            Assert.IsTrue(Browser.Instance.IsTextPresent(By.Id("text_" + toedit), newname));
+        }
+        //
+        //Edit Artist leaving the field twitter empty
+        //
+        [TestMethod]
+        public void EditArtistTwitterEmtpy()
+        {
+            string toedit = "twitter";
+            Account accountView = new Account();
+            accountView.EditArtistInfo("", toedit);
+            //Click on any where to change the focus from the input
+            Browser.Driver.FindElement(By.Id("box_form")).Click();
+            Assert.IsFalse(Browser.Instance.IsTextPresent(By.Id("text_" + toedit), ""));
+        }
+        //
+        //Edit Artist with a long myspace
+        //
+        [TestMethod]
+        public void EditLongArtistTwitter()
+        {
+            string toedit = "twitter";
+            Account accountView = new Account();
+            string name = "123132132132132132132132131313231321321321323213213213";
+            accountView.EditArtistInfo(name, toedit);
+            Assert.IsFalse(Browser.Instance.IsTextPresent(By.Id("text_" + toedit), name));
+        }
+        //
+        //Edit Artist twitter with invalid chars
+        //
+        [TestMethod]
+        public void EditArtistTwitterInvalid()
+        {
+            string toedit = "twitter";
+            Account accountView = new Account();
+            string name = "!#$%&/()=?=)(/&%&/()=?@☺☻♥♦♣♠•◘○";
+            accountView.EditArtistInfo(name, toedit);
+            //Can not check because is not checking the name inupts
+            Assert.IsFalse(Browser.Instance.IsTextPresent(By.Id("text_" + toedit), name));
         }
     }
 }

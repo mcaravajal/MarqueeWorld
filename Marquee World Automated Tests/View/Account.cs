@@ -61,16 +61,17 @@ namespace Marquee_World_Automated_Tests.View
                 }
             }
         }
-        public void EditArtistName(string name)
+        public void EditArtistInfo(string name,string toedit)
         {
             Login login = new Login();
-            login.LoginSuccesfullyGenearlUser();
-            Browser.Driver.FindElement(By.Id("band")).Click();
-            Browser.Driver.FindElement(By.Id("input_band")).Clear();
+            login.LoginSuccesfullyArtistUser();
+            Browser.Driver.FindElement(By.Id(toedit)).Click();
+            Browser.Driver.FindElement(By.Id("input_"+toedit)).Clear();
             IAlert alert = Browser.Driver.SwitchTo().Alert();
             alert.Accept();
-            Browser.Driver.FindElement(By.Id("input_band")).SendKeys(name);
-            Browser.Driver.FindElement(By.Id("input_band")).SendKeys(Keys.Enter);
+            Browser.Driver.FindElement(By.Id("input_"+toedit)).SendKeys(name);
+            Browser.Driver.FindElement(By.Id("input_"+toedit)).SendKeys(Keys.Enter);
+            Browser.Instance.Wait(2000);
         }
     }
 }
