@@ -58,7 +58,6 @@ namespace Marquee_World_Automated_Tests.Tests
             About abourView = new About();
             abourView.NavigateToAbout();
             Assert.AreEqual(Browser.Driver.FindElement(By.CssSelector("div.body_of_text h1")).Text, "ABOUT MARQUEE WORLD");
-            //Assert.IsTrue(Browser.Instance.IsTextPresent(By.CssSelector()));
         }
         [TestMethod]
         public void NavigateToFAQ()
@@ -66,7 +65,6 @@ namespace Marquee_World_Automated_Tests.Tests
             FAQ FAQView = new FAQ();
             FAQView.NavigateToFAQ();
             Assert.AreEqual(Browser.Driver.FindElement(By.CssSelector("section#site_content h1")).Text, "FAQs");
-            //Assert.IsTrue(Browser.Instance.IsTextPresent(By.CssSelector()));
         }
     }
 }
