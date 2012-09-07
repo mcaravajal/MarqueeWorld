@@ -9,6 +9,10 @@ namespace Marquee_World_Automated_Tests.View
 {
     public class Home
     {
+        public void NavigateToSocialLink(string Link)
+        {
+            Browser.Driver.FindElement(By.CssSelector("img[alt='"+Link+"']")).Click();
+        }
         public void Login(string username, string password)
         {
             Browser.Driver.FindElement(By.Id("email")).SendKeys(username);

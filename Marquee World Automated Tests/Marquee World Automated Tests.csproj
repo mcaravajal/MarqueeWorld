@@ -82,6 +82,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tests\EditAccount.cs" />
+    <Compile Include="Tests\LinksTesting.cs" />
     <Compile Include="Tests\Login.cs" />
     <Compile Include="Tests\ForgotPasswordTests.cs" />
     <Compile Include="Tests\SignUp.cs" />
@@ -89,7 +90,9 @@
     <Compile Include="Tests\UploadVideo.cs" />
     <Compile Include="Util\ConfigUtil.cs" />
     <Compile Include="Util\Browser.cs" />
+    <Compile Include="View\About.cs" />
     <Compile Include="View\Account.cs" />
+    <Compile Include="View\FAQ.cs" />
     <Compile Include="View\ForgotPassword.cs" />
     <Compile Include="View\Home.cs" />
     <Compile Include="View\Register.cs" />
