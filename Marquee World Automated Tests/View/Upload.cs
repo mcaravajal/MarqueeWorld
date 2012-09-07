@@ -16,7 +16,7 @@ namespace Marquee_World_Automated_Tests.View
             Login login = new Login();
             login.LoginSuccesfullyArtistUser();
             Browser.Driver.FindElement(By.CssSelector("a[href='upload.php']")).Click();
-            IWebElement uploadfile= Browser.Driver.FindElement(By.Id("file"));
+            IWebElement uploadfile = Browser.Driver.FindElement(By.Id("file"));
             uploadfile.SendKeys(path);
             Browser.Driver.FindElement(By.Id("title")).SendKeys(tittle);
             Browser.Driver.FindElement(By.Id("description")).SendKeys(description);
