@@ -29,6 +29,7 @@ namespace Marquee_World_Automated_Tests.Tests
         {
             UpgradeAccount upgradeView = new UpgradeAccount();
             upgradeView.UpgradeToArtist(ConfigUtil.GetString("Marquee.register.artist.name"), ConfigUtil.GetString("Marquee.register.artist.website"), ConfigUtil.GetString("Marquee.register.artist.facebook"), ConfigUtil.GetString("Marquee.register.artist.myspace"), ConfigUtil.GetString("Marquee.register.artist.twitter"));
+            Browser.Instance.TakeScreenshot("UpgradeToArtistSuccesfully");
             Assert.IsTrue(Browser.Instance.IsTextPresent(By.CssSelector("div.contained h1"), "UPLOAD YOUR MUSIC"));
         }
     }

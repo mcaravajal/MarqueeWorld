@@ -38,6 +38,7 @@ namespace Marquee_World_Automated_Tests.Tests
             {
                 aux = Browser.Driver.FindElement(By.Id("input_first")).GetAttribute("Style");
             }
+            Browser.Instance.TakeScreenshot("EditNameSuccesfully");
             Assert.IsTrue(Browser.Instance.IsTextPresent(By.Id("text_first"), newname));
         }
         //
@@ -51,8 +52,10 @@ namespace Marquee_World_Automated_Tests.Tests
             //Check if it leave in blank
             Assert.AreEqual(Browser.Driver.FindElement(By.Id("input_first")).GetAttribute("Style"), "display: inline;");
             //Click on any where to change the focus from the input
+            Browser.Instance.TakeScreenshot("EditNameEmtpy_0");
             Browser.Driver.FindElement(By.Id("box_form")).Click();
             //Check if it was saved corectly
+            Browser.Instance.TakeScreenshot("EditNameEmtpy_1");
             Assert.IsFalse(Browser.Instance.IsTextPresent(By.Id("text_first"),""));
         }
         //
@@ -63,6 +66,7 @@ namespace Marquee_World_Automated_Tests.Tests
         {
             Account accountView = new Account();
             accountView.EditFirstName("loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooongname");
+            Browser.Instance.TakeScreenshot("EditlongName");
             //Can not check because is not checking the name size
             //Assert.IsFalse(Browser.Instance.IsTextPresent(By.Id("text_first"), ""));
         }
@@ -74,6 +78,7 @@ namespace Marquee_World_Automated_Tests.Tests
         {
             Account accountView = new Account();
             accountView.EditFirstName("!#$%&/()=?=)(/&%&/()=?@☺☻♥♦♣♠•◘○");
+            Browser.Instance.TakeScreenshot("EditNameInvalid");
             //Can not check because is not checking the name inupts
             //Assert.IsFalse(Browser.Instance.IsTextPresent(By.Id("text_first"), ""));
         }
@@ -92,6 +97,7 @@ namespace Marquee_World_Automated_Tests.Tests
             {
                 aux = Browser.Driver.FindElement(By.Id("input_last")).GetAttribute("Style");
             }
+            Browser.Instance.TakeScreenshot("EditLastNameSuccesfully");
             Assert.IsTrue(Browser.Instance.IsTextPresent(By.Id("text_last"), newname));
         }
         //
@@ -105,8 +111,10 @@ namespace Marquee_World_Automated_Tests.Tests
             //Check if it leave in blank
             Assert.AreEqual(Browser.Driver.FindElement(By.Id("input_last")).GetAttribute("Style"), "display: inline;");
             //Click on any where to change the focus from the input
+            Browser.Instance.TakeScreenshot("EditLastNameEmtpy_0");
             Browser.Driver.FindElement(By.Id("box_form")).Click();
             //Check if it was saved corectly
+            Browser.Instance.TakeScreenshot("EditLastNameEmtpy_1");
             Assert.IsFalse(Browser.Instance.IsTextPresent(By.Id("text_last"), ""));
         }
         //
@@ -117,6 +125,7 @@ namespace Marquee_World_Automated_Tests.Tests
         {
             Account accountView = new Account();
             accountView.EditLasttName("loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooongname");
+            Browser.Instance.TakeScreenshot("EditlongLastName");
             //Can not check because is not checking the name size
             //Assert.IsFalse(Browser.Instance.IsTextPresent(By.Id("text_last"), ""));
         }
@@ -128,6 +137,7 @@ namespace Marquee_World_Automated_Tests.Tests
         {
             Account accountView = new Account();
             accountView.EditLasttName("!#$%&/()=?=)(/&%&/()=?@☺☻♥♦♣♠•◘○");
+            Browser.Instance.TakeScreenshot("EditLastNameInvalid");
             //Can not check because is not checking the name inupts
             //Assert.IsFalse(Browser.Instance.IsTextPresent(By.Id("text_last"), ""));
         }
@@ -146,6 +156,7 @@ namespace Marquee_World_Automated_Tests.Tests
             {
                 aux = Browser.Driver.FindElement(By.Id("input_zip")).GetAttribute("Style");
             }
+            Browser.Instance.TakeScreenshot("EditZipSuccesfully");
             Assert.IsTrue(Browser.Instance.IsTextPresent(By.Id("text_zip"), newname));
         }
         //
@@ -157,7 +168,9 @@ namespace Marquee_World_Automated_Tests.Tests
             Account accountView = new Account();
             accountView.Editzip("");
             //Click on any where to change the focus from the input
+            Browser.Instance.TakeScreenshot("EditZipEmtpy_0");
             Browser.Driver.FindElement(By.Id("box_form")).Click();
+            Browser.Instance.TakeScreenshot("EditZipEmtpy_1");
             Assert.IsTrue(Browser.Instance.IsTextPresent(By.Id("error_zip"), "INVALID ZIP!"));
         }
         //
@@ -168,6 +181,7 @@ namespace Marquee_World_Automated_Tests.Tests
         {
             Account accountView = new Account();
             accountView.Editzip("123132132132132132132132131313231321321321323213213213");
+            Browser.Instance.TakeScreenshot("EditLongZip");
             Assert.IsTrue(Browser.Instance.IsTextPresent(By.Id("error_zip"), "INVALID ZIP!"));
         }
         //
@@ -178,7 +192,7 @@ namespace Marquee_World_Automated_Tests.Tests
         {
             Account accountView = new Account();
             accountView.Editzip("!#$%&/()=?=)(/&%&/()=?@☺☻♥♦♣♠•◘○");
-            //Can not check because is not checking the name inupts
+            Browser.Instance.TakeScreenshot("EditZipInvalid");
             Assert.IsTrue(Browser.Instance.IsTextPresent(By.Id("error_zip"), "INVALID ZIP!"));
         }
         //
@@ -189,6 +203,7 @@ namespace Marquee_World_Automated_Tests.Tests
         {
             Account accountView = new Account();
             accountView.Editzip("ZipCode");
+            Browser.Instance.TakeScreenshot("EditZipLetters");
             Assert.IsTrue(Browser.Instance.IsTextPresent(By.Id("error_zip"), "INVALID ZIP!"));
         }
         //
@@ -199,6 +214,7 @@ namespace Marquee_World_Automated_Tests.Tests
         {
             Account accountView = new Account();
             accountView.ChangeStateOfNewsLetter(true);
+            Browser.Instance.TakeScreenshot("SuscribeToNewsLetter");
             Assert.IsTrue(Browser.Instance.IsTextPresent(By.CssSelector("div#newsletter div.table_column_right span.fake_link"), "unsubscribe"));
         }
         //
@@ -209,7 +225,7 @@ namespace Marquee_World_Automated_Tests.Tests
         {
             Account accountView = new Account();
             accountView.ChangeStateOfNewsLetter(false);
-            string state = Browser.Driver.FindElement(By.CssSelector("div#newsletter div.table_column_right span.fake_link")).Text;
+            Browser.Instance.TakeScreenshot("UnSuscribeToNewsLetter");
             Assert.IsTrue(Browser.Instance.IsTextPresent(By.CssSelector("div#newsletter div.table_column_right span.fake_link"), "subscribe"));
         }
         //
@@ -228,6 +244,7 @@ namespace Marquee_World_Automated_Tests.Tests
             {
                 aux = Browser.Driver.FindElement(By.Id("input_"+toedit)).GetAttribute("Style");
             }
+            Browser.Instance.TakeScreenshot("EditArtistNameSuccesfully");
             Assert.IsTrue(Browser.Instance.IsTextPresent(By.Id("text_"+toedit), newname));
         }
         //
@@ -240,7 +257,9 @@ namespace Marquee_World_Automated_Tests.Tests
             Account accountView = new Account();
             accountView.EditArtistInfo("",toedit);
             //Click on any where to change the focus from the input
+            Browser.Instance.TakeScreenshot("EditArtistNameEmtpy_0");
             Browser.Driver.FindElement(By.Id("box_form")).Click();
+            Browser.Instance.TakeScreenshot("EditArtistNameEmtpy_1");
             Assert.IsFalse(Browser.Instance.IsTextPresent(By.Id("text_"+toedit), ""));
         }
         //
@@ -253,6 +272,7 @@ namespace Marquee_World_Automated_Tests.Tests
             Account accountView = new Account();
             string name = "123132132132132132132132131313231321321321323213213213";
             accountView.EditArtistInfo(name,toedit);
+            Browser.Instance.TakeScreenshot("EditLongArtistName");
             Assert.IsFalse(Browser.Instance.IsTextPresent(By.Id("text_"+toedit), name));
         }
         //
@@ -265,6 +285,7 @@ namespace Marquee_World_Automated_Tests.Tests
             Account accountView = new Account();
             string name = "!#$%&/()=?=)(/&%&/()=?@☺☻♥♦♣♠•◘○";
             accountView.EditArtistInfo(name,toedit);
+            Browser.Instance.TakeScreenshot("EditArtistNameInvalid");
             //Can not check because is not checking the name inupts
             Assert.IsFalse(Browser.Instance.IsTextPresent(By.Id("text_"+toedit), name));
         }
@@ -280,6 +301,7 @@ namespace Marquee_World_Automated_Tests.Tests
             string newname = ConfigUtil.GetString("Marquee.register.artist.website") + new Random().Next(10000, 99999);
             accountView.EditArtistInfo(newname,toedit);
             Browser.Instance.Wait(5000);
+            Browser.Instance.TakeScreenshot("EditArtistNameInvalid");
             Assert.IsTrue(Browser.Instance.IsTextPresent(By.Id("text_"+toedit), newname));
         }
         //
@@ -292,7 +314,9 @@ namespace Marquee_World_Automated_Tests.Tests
             Account accountView = new Account();
             accountView.EditArtistInfo("",toedit);
             //Click on any where to change the focus from the input
+            Browser.Instance.TakeScreenshot("EditArtistWebsiteEmtpy_0");
             Browser.Driver.FindElement(By.Id("box_form")).Click();
+            Browser.Instance.TakeScreenshot("EditArtistWebsiteEmtpy_1");
             Assert.IsFalse(Browser.Instance.IsTextPresent(By.Id("text_"+toedit), ""));
         }
         //
@@ -305,6 +329,7 @@ namespace Marquee_World_Automated_Tests.Tests
             Account accountView = new Account();
             string name = "123132132132132132132132131313231321321321323213213213";
             accountView.EditArtistInfo(name,toedit);
+            Browser.Instance.TakeScreenshot("EditLongArtistWebsite");
             Assert.IsFalse(Browser.Instance.IsTextPresent(By.Id("text_"+toedit), name));
         }
         //
@@ -318,6 +343,7 @@ namespace Marquee_World_Automated_Tests.Tests
             string name = "!#$%&/()=?=)(/&%&/()=?@☺☻♥♦♣♠•◘○";
             accountView.EditArtistInfo(name,toedit);
             //Can not check because is not checking the name inupts
+            Browser.Instance.TakeScreenshot("EditArtistWebsiteInvalid");
             Assert.IsFalse(Browser.Instance.IsTextPresent(By.Id("text_"+toedit), name));
         }
         //
@@ -332,6 +358,7 @@ namespace Marquee_World_Automated_Tests.Tests
             string newname = ConfigUtil.GetString("Marquee.register.artist.facebook") + new Random().Next(10000, 99999);
             accountView.EditArtistInfo(newname,toedit);
             Browser.Instance.Wait(5000);
+            Browser.Instance.TakeScreenshot("EditArtistFacebookSuccesfully");
             Assert.IsTrue(Browser.Instance.IsTextPresent(By.Id("text_"+toedit), newname));
         }
         //
@@ -345,6 +372,7 @@ namespace Marquee_World_Automated_Tests.Tests
             accountView.EditArtistInfo("", toedit);
             //Click on any where to change the focus from the input
             Browser.Driver.FindElement(By.Id("box_form")).Click();
+            Browser.Instance.TakeScreenshot("EditArtistFacebookEmtpy");
             Assert.IsFalse(Browser.Instance.IsTextPresent(By.Id("text_" + toedit), ""));
         }
         //
@@ -357,6 +385,7 @@ namespace Marquee_World_Automated_Tests.Tests
             Account accountView = new Account();
             string name = "123132132132132132132132131313231321321321323213213213";
             accountView.EditArtistInfo(name, toedit);
+            Browser.Instance.TakeScreenshot("EditLongArtistFacebook");
             Assert.IsFalse(Browser.Instance.IsTextPresent(By.Id("text_" + toedit), name));
         }
         //
@@ -370,6 +399,7 @@ namespace Marquee_World_Automated_Tests.Tests
             string name = "!#$%&/()=?=)(/&%&/()=?@☺☻♥♦♣♠•◘○";
             accountView.EditArtistInfo(name, toedit);
             //Can not check because is not checking the name inupts
+            Browser.Instance.TakeScreenshot("EditArtistFacebookInvalid");
             Assert.IsFalse(Browser.Instance.IsTextPresent(By.Id("text_" + toedit), name));
         }
         //
@@ -384,6 +414,7 @@ namespace Marquee_World_Automated_Tests.Tests
             string newname = ConfigUtil.GetString("Marquee.register.artist.myspace") + new Random().Next(10000, 99999);
             accountView.EditArtistInfo(newname, toedit);
             Browser.Instance.Wait(5000);
+            Browser.Instance.TakeScreenshot("EditArtistMySpaceSuccesfully");
             Assert.IsTrue(Browser.Instance.IsTextPresent(By.Id("text_" + toedit), newname));
         }
         //
@@ -396,7 +427,9 @@ namespace Marquee_World_Automated_Tests.Tests
             Account accountView = new Account();
             accountView.EditArtistInfo("", toedit);
             //Click on any where to change the focus from the input
+            Browser.Instance.TakeScreenshot("EditArtistMySpaceEmtpy_0");
             Browser.Driver.FindElement(By.Id("box_form")).Click();
+            Browser.Instance.TakeScreenshot("EditArtistMySpaceEmtpy_1");
             Assert.IsFalse(Browser.Instance.IsTextPresent(By.Id("text_" + toedit), ""));
         }
         //
@@ -409,6 +442,7 @@ namespace Marquee_World_Automated_Tests.Tests
             Account accountView = new Account();
             string name = "123132132132132132132132131313231321321321323213213213";
             accountView.EditArtistInfo(name, toedit);
+            Browser.Instance.TakeScreenshot("EditLongArtistMySpace");
             Assert.IsFalse(Browser.Instance.IsTextPresent(By.Id("text_" + toedit), name));
         }
         //
@@ -422,6 +456,7 @@ namespace Marquee_World_Automated_Tests.Tests
             string name = "!#$%&/()=?=)(/&%&/()=?@☺☻♥♦♣♠•◘○";
             accountView.EditArtistInfo(name, toedit);
             //Can not check because is not checking the name inupts
+            Browser.Instance.TakeScreenshot("EditArtistMySpaceInvalid");
             Assert.IsFalse(Browser.Instance.IsTextPresent(By.Id("text_" + toedit), name));
         }
         //
@@ -436,6 +471,7 @@ namespace Marquee_World_Automated_Tests.Tests
             string newname = ConfigUtil.GetString("Marquee.register.artist.myspace") + new Random().Next(10000, 99999);
             accountView.EditArtistInfo(newname, toedit);
             Browser.Instance.Wait(5000);
+            Browser.Instance.TakeScreenshot("EditArtistTwitterSuccesfully");
             Assert.IsTrue(Browser.Instance.IsTextPresent(By.Id("text_" + toedit), newname));
         }
         //
@@ -448,7 +484,9 @@ namespace Marquee_World_Automated_Tests.Tests
             Account accountView = new Account();
             accountView.EditArtistInfo("", toedit);
             //Click on any where to change the focus from the input
+            Browser.Instance.TakeScreenshot("EditArtistTwitterEmtpy_0");
             Browser.Driver.FindElement(By.Id("box_form")).Click();
+            Browser.Instance.TakeScreenshot("EditArtistTwitterEmtpy_1");
             Assert.IsFalse(Browser.Instance.IsTextPresent(By.Id("text_" + toedit), ""));
         }
         //
@@ -461,6 +499,7 @@ namespace Marquee_World_Automated_Tests.Tests
             Account accountView = new Account();
             string name = "123132132132132132132132131313231321321321323213213213";
             accountView.EditArtistInfo(name, toedit);
+            Browser.Instance.TakeScreenshot("EditLongArtistTwitter");
             Assert.IsFalse(Browser.Instance.IsTextPresent(By.Id("text_" + toedit), name));
         }
         //
@@ -474,6 +513,7 @@ namespace Marquee_World_Automated_Tests.Tests
             string name = "!#$%&/()=?=)(/&%&/()=?@☺☻♥♦♣♠•◘○";
             accountView.EditArtistInfo(name, toedit);
             //Can not check because is not checking the name inupts
+            Browser.Instance.TakeScreenshot("EditArtistTwitterInvalid");
             Assert.IsFalse(Browser.Instance.IsTextPresent(By.Id("text_" + toedit), name));
         }
     }

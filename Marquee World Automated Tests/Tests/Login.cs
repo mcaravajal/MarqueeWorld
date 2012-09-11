@@ -31,6 +31,7 @@ namespace Marquee_World_Automated_Tests.Tests
         {
             Home HomePage = new Home();
             HomePage.Login(ConfigUtil.GetString("Marquee.user.artist"), ConfigUtil.GetString("Marquee.pass.artist"));
+            Browser.Instance.TakeScreenshot("LoginSuccesfullyArtistUser");
             Assert.IsTrue(Browser.Instance.IsTextPresent(By.CssSelector("div#login_hp a[href='logout.php']"), "Log Out"));
         }
         //
@@ -41,6 +42,7 @@ namespace Marquee_World_Automated_Tests.Tests
         {
             Home HomePage = new Home();
             HomePage.Login(ConfigUtil.GetString("Marquee.user.general"), ConfigUtil.GetString("Marquee.pass.general"));
+            Browser.Instance.TakeScreenshot("LoginSuccesfullyGenearlUser");
             Assert.IsTrue(Browser.Instance.IsTextPresent(By.CssSelector("div#login_hp a[href='logout.php']"), "Log Out"));
         }
         //
@@ -51,6 +53,7 @@ namespace Marquee_World_Automated_Tests.Tests
         {
             Home HomePage = new Home();
             HomePage.Login(ConfigUtil.GetString("Marquee.user.general"), "");
+            Browser.Instance.TakeScreenshot("LoginPasswordEmpty");
             Assert.IsTrue(Browser.Instance.IsElementPresent(By.Id("")));
         }
         //
@@ -61,6 +64,7 @@ namespace Marquee_World_Automated_Tests.Tests
         {
             Home HomePage = new Home();
             HomePage.Login("", ConfigUtil.GetString("Marquee.pass.general"));
+            Browser.Instance.TakeScreenshot("LoginUserEmpty");
             Assert.IsTrue(Browser.Instance.IsElementPresent(By.Id("")));
         }
         //
@@ -71,6 +75,7 @@ namespace Marquee_World_Automated_Tests.Tests
         {
             Home HomePage = new Home();
             HomePage.Login("", "");
+            Browser.Instance.TakeScreenshot("LoginUserAndPasswordEmpty");
             Assert.IsTrue(Browser.Instance.IsElementPresent(By.Id("")));
         }
         //
@@ -81,6 +86,7 @@ namespace Marquee_World_Automated_Tests.Tests
         {
             Home HomePage = new Home();
             HomePage.Login(ConfigUtil.GetString("Marquee.user.general"), "WrongPassword");
+            Browser.Instance.TakeScreenshot("LoginGeneralPasswordWrong");
             Assert.IsTrue(Browser.Instance.IsElementPresent(By.Id("")));
         }
         //
@@ -91,6 +97,7 @@ namespace Marquee_World_Automated_Tests.Tests
         {
             Home HomePage = new Home();
             HomePage.Login("UserName@worng.com", ConfigUtil.GetString("Marquee.pass.general"));
+            Browser.Instance.TakeScreenshot("LoginGeneralUserWrong");
             Assert.IsTrue(Browser.Instance.IsElementPresent(By.Id("")));
         }
         //
@@ -101,6 +108,7 @@ namespace Marquee_World_Automated_Tests.Tests
         {
             Home HomePage = new Home();
             HomePage.Login(ConfigUtil.GetString("Marquee.user.artist"), "WrongPassword");
+            Browser.Instance.TakeScreenshot("LoginArtistPasswordWrong");
             Assert.IsTrue(Browser.Instance.IsElementPresent(By.Id("")));
         }
         //
@@ -111,6 +119,7 @@ namespace Marquee_World_Automated_Tests.Tests
         {
             Home HomePage = new Home();
             HomePage.Login("UserName@worng.com", ConfigUtil.GetString("Marquee.pass.artist"));
+            Browser.Instance.TakeScreenshot("LoginArtistUserWrong");
             Assert.IsTrue(Browser.Instance.IsElementPresent(By.Id("")));
         }        
     }
