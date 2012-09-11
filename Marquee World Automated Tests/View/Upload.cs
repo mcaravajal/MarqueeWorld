@@ -22,16 +22,12 @@ namespace Marquee_World_Automated_Tests.View
             Browser.Driver.FindElement(By.Id("description")).SendKeys(description);
             for (int x = 0; x < check; x++)
             {
-                while (true)
+                IWebElement ElementToCheck = Browser.Instance.GetRandomElement(By.CssSelector("div.scroll_checkboxes label input"));
+                while (ElementToCheck.Selected)
                 {
-                    IWebElement ElementToCheck = Browser.Instance.GetRandomElement(By.CssSelector("div.scroll_checkboxes label input"));
-                    if (!ElementToCheck.Selected)
-                    {
-                        ElementToCheck.Click();
-                        break;
-                        
-                    }
+                    ElementToCheck = Browser.Instance.GetRandomElement(By.CssSelector("div.scroll_checkboxes label input"));
                 }
+                ElementToCheck.Click();
             }
         }
     }
