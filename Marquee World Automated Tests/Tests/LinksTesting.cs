@@ -29,17 +29,19 @@ namespace Marquee_World_Automated_Tests.Tests
         {
             Home homeView = new Home();
             homeView.NavigateToSocialLink("facebook");
-            Browser.Instance.Wait(5000);
+            Browser.Instance.Wait(By.Id("blueBar"));
             //This Test Case is failing right now
-            Assert.AreEqual(Browser.Driver.Url, "https://www.facebook.com/home.php");
-            //Assert.IsTrue(false);
+            //Assert.AreEqual(Browser.Driver.Url, "https://www.facebook.com/home.php");
+            Browser.Instance.TakeScreenshot("NavigateToFacebook");
+            Assert.IsTrue(false);
         }
         [TestMethod]
         public void NavigateToTwitter()
         {
             Home homeView = new Home();
             homeView.NavigateToSocialLink("twitter");
-            Browser.Instance.Wait(5000);
+            Browser.Instance.Wait(By.Id("dm_dialog"));
+            Browser.Instance.TakeScreenshot("NavigateToTwitter");
             Assert.AreEqual(Browser.Driver.Url, "https://twitter.com/marqueeworld");
         }
         [TestMethod]
@@ -47,8 +49,9 @@ namespace Marquee_World_Automated_Tests.Tests
         {
             Home homeView = new Home();
             homeView.NavigateToSocialLink("gplus");
-            Browser.Instance.Wait(5000);
+            Browser.Instance.Wait(By.Id("gbx3"));
             //This Test Case is failing right now
+            Browser.Instance.TakeScreenshot("NavigateToGooglePlus");
             Assert.AreEqual(Browser.Driver.Url, "https://plus.google.com/up/search");
             //Assert.IsTrue(false);
         }
@@ -57,6 +60,7 @@ namespace Marquee_World_Automated_Tests.Tests
         {
             About abourView = new About();
             abourView.NavigateToAbout();
+            Browser.Instance.TakeScreenshot("NavigateToAbout");
             Assert.AreEqual(Browser.Driver.FindElement(By.CssSelector("div.body_of_text h1")).Text, "ABOUT MARQUEE WORLD");
         }
         [TestMethod]
@@ -64,6 +68,7 @@ namespace Marquee_World_Automated_Tests.Tests
         {
             FAQ FAQView = new FAQ();
             FAQView.NavigateToFAQ();
+            Browser.Instance.TakeScreenshot("NavigateToFAQ");
             Assert.AreEqual(Browser.Driver.FindElement(By.CssSelector("section#site_content h1")).Text, "FAQs");
         }
     }
